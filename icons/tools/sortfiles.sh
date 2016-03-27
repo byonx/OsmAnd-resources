@@ -17,6 +17,10 @@ mycp() {
 	mygroup ${1}_${2} $3
 }
 
+mycpname() {
+	mygroup ${1} ${2}
+}
+
 
 
 ## Shaders ! # copy all shaders untouched
@@ -25,19 +29,57 @@ cp ../png/hdpi/h_* ../../rendering_styles/style-icons/drawable-hdpi/
 cp ../png/xhdpi/h_* ../../rendering_styles/style-icons/drawable-xhdpi/
 cp ../png/xxhdpi/h_* ../../rendering_styles/style-icons/drawable-xxhdpi/
 
+cp ../no-svg/drawable-mdpi/* ../../rendering_styles/style-icons/drawable-mdpi/
+cp ../no-svg/drawable-hdpi/* ../../rendering_styles/style-icons/drawable-hdpi/
+cp ../no-svg/drawable-xhdpi/* ../../rendering_styles/style-icons/drawable-xhdpi/
+cp ../no-svg/drawable-xxhdpi/* ../../rendering_styles/style-icons/drawable-xxhdpi/
+
 mygroup landuse landuse_coniferous.png
-mycp landuse grass landuse_grass.png
-mycp landuse forest landuse_coniferous.png               # Keep shaders with background color, cannot be replaced by icons!
-mycp natural beach tourist_beach2.png                     # Keep shaders with background color, cannot be replaced by icons!
-mycp landuse cemetery place_of_worship_christian3.png    # Keep shaders with background color, cannot be replaced by icons!
-mycp amenity grave_yard place_of_worship_christian3.png  # Keep shaders with background color, cannot be replaced by icons!
-mycp natural scrub landuse_scrub.png                     # Keep shaders with background color, cannot be replaced by icons!
-mycp natural swamp landuse_swamp.png                     # Keep shaders with background color, cannot be replaced by icons!
-mycp tourism zoo tourist_zoo.png                         # Keep shaders with background color, cannot be replaced by icons!
-mycp military danger_area poi_danger_area.png
-mycp military nuclear_explosion_site poi_nuclear_explosion_site.png
-mycp natural glacier poi_peak2.png                       # Keep shaders with background color, cannot be replaced by icons!
-mycp landuse landfill landuse_landfill.png
+mycpname grass landuse_grass.png
+mycpname forest landuse_forest.png               # Keep shaders with background color, cannot be replaced by icons!
+mycpname wood landuse_forest.png
+mycpname beach tourist_beach2.png                     # Keep shaders with background color, cannot be replaced by icons!
+#mycp natural scrub landuse_scrub.png                     # Keep shaders with background color, cannot be replaced by icons!
+#mycp natural swamp landuse_swamp.png                     # Keep shaders with background color, cannot be replaced by icons!
+mycpname zoo tourist_zoo.png                         # Keep shaders with background color, cannot be replaced by icons!
+mycpname military_danger_area poi_danger_area.png
+mycpname military_nuclear_explosion_site poi_nuclear_explosion_site.png
+mycpname glacier poi_peak2.png                       # Keep shaders with background color, cannot be replaced by icons!
+mycpname landfill landuse_landfill.png
+mycpname wetland landuse_wetland.png
+mycpname cemetery landuse_cemetery.png
+mycpname grave_yard landuse_cemetery.png
+mycpname military_landuse landuse_military.png
+mycpname industrial landuse_industrial.png
+mycpname construction landuse_construction.png
+mycpname garages landuse_garages.png
+mycpname quarry landuse_quarry.png
+mycpname allotments landuse_allotments.png
+mycpname place_allotments poi_hamlet.png
+mycpname village_green landuse_village_green.png
+mycpname recreation_ground landuse_recreation_ground.png
+mycpname residential landuse_residential.png
+mycpname commercial landuse_commercial.png
+mycpname retail landuse_retail.png
+mycpname religious landuse_religious.png
+mycpname orchard landuse_orchard.png
+mycpname vineyard landuse_vineyard.png
+mycpname garden landuse_garden.png
+mycpname farmland landuse_farmland.png
+mycpname nature_reserve landuse_nature_reserve.png
+mycpname logging landuse_logging.png
+mycpname sand landuse_sand.png
+mycpname meadow landuse_meadow.png
+mycpname salt_pond landuse_salt_pond.png
+mycpname farmyard landuse_farmyard.png
+mycpname landuse_railway landuse_railway.png
+mycpname scrub landuse_scrub2.png
+mycpname heath landuse_heath.png
+mycpname grassland landuse_grassland.png
+mycpname greenfield landuse_greenfield.png
+mycpname brownfield landuse_brownfield.png
+mycpname protected_area landuse_protected_area.png
+mycpname plant_nursery landuse_plant_nursery.png
 
 mycp stroke black functional-icons_black_stroke.png
 mycp stroke darkgreen functional-icons_darkgreen_stroke.png
@@ -52,27 +94,44 @@ mygroup natural poi_peak2.png
 mycp natural cave_entrance poi_cave.png
 mycp natural geyser water_geyser.png  #scale 0.375
 mycp natural hot_spring water_hot_spring.png  #scale 0.375
-mycp natural peak_big functional-icons_peak_big.png  #needs black icon!  #scale 0.5
-mycp natural peak functional-icons_peak.png  #needs black icon!  #scale 0.5
+mycp natural peak_big poi_peak_big.png
+mycp natural peak poi_peak.png
 mycp natural peak_night_big functional-icons_peak_night_big.png  #For night orienteering use orange similar to contour lines (=day version with color #CC6600)  #scale 0.5
 mycp natural peak_night functional-icons_peak_night.png  #For night orienteering use orange similar to contour lines (=day version with color #CC6600)  #scale 0.5
-mycp natural saddle functional-icons_saddle.png
-mycp natural sinkhole functional-icons_sinkhole.png
+mycp natural saddle poi_saddle.png
+mycp natural sinkhole poi_sinkhole.png
 mycp natural spring water_spring.png  #scale 0.375
-mycp natural stone functional-icons_stone.png  #scale 0.375
+mycp natural stone poi_stone.png  #scale 0.375
 mycp natural tree_broadleaved functional-icons_tree_broadleaved.png
 mycp natural tree_cypress functional-icons_tree_cypress.png
 mycp natural tree functional-icons_tree.png  #scale 0.25
 mycp natural tree_leafless functional-icons_tree_leafless.png
 mycp natural tree_needleleaved functional-icons_tree_needleleaved.png
 mycp natural tree_palm functional-icons_tree_palm.png
+mycpname tree_dot functional-icons_tree.png
+mycpname tree poi_tree.png
 mycp natural volcano_active_big functional-icons_volcano_active_big.png
 mycp natural volcano_active functional-icons_volcano_active.png
 mycp natural volcano_big functional-icons_volcano_big.png
-mycp natural volcano functional-icons_volcano.png  #Is poi_peak.png with color #D40000  #scale 0.5
+mycp natural volcano_map functional-icons_volcano.png  #Is poi_peak.png with color #D40000  #scale 0.5
+mycpname volcano poi_volcano_active.png
 mycp waterway rapids barrier_rapids.png  #scale 0.375
-mycp waterway waterfall water_waterfall.png  #scale 0.375
-
+mycpname waterfall water_waterfall.png  #scale 0.375
+mycpname dam water_dam.png
+mycpname weir water_weir.png
+mycpname stream water_stream.png
+mycpname river water_river.png
+mycpname water water_water.png
+mycpname canal water_canal.png
+mycpname crater poi_crater.png
+mycpname cape poi_cape.png
+mycpname bay poi_bay.png
+mycpname reef poi_reef.png
+mycpname reservoir water_reservoir.png
+mycpname basin water_reservoir.png
+mycpname ridge poi_ridge.png
+mycpname strait poi_strait.png
+mycpname fjord poi_fjord.png
 
 ## Location dots
 mygroup administrative poi_boundary_administrative.png
@@ -87,7 +146,19 @@ mycp place capital_dot_small functional-icons_capital_small.png  #scale 0.375
 mycp place town_dot_night functional-icons_town_night.png  #scale 0.25
 mycp place town_dot functional-icons_town.png  #scale .25
 mycp place city poi_city.png  #scale 0.375
-mycp place town poi_town.png  #scale .25
+mycp place town poi_town.png
+mycpname hamlet poi_hamlet.png
+mycpname village poi_village.png
+mycpname locality poi_place_locality.png
+mycpname suburb poi_suburb.png
+mycpname neighbourhood poi_suburb.png
+mycpname isolated_dwelling poi_isolated_dwelling.png
+mycpname neighborhood poi_place_neighborhood.png
+mycpname island poi_island.png
+mycpname country poi_country.png
+mycpname quarter poi_quarter.png
+mycpname place_farm poi_place_farm.png
+mycpname islet poi_islet.png
 
 ## Barrier dots
 mycp barrier small_black_1 functional-icons_point_black_1.png  #scale 0.25
@@ -109,6 +180,20 @@ mycp amenity fire_station emergency_firestation4.png
 mycp amenity police emergency_police3.png
 mycp emergency fire_hydrant emergency_fire_hydrant.png
 mycp emergency phone emergency_emergency_phone.png
+mycpname emergency_access_point emergency_emergency_access_point.png
+mycpname defibrillator emergency_defibrillator.png
+mycpname ambulance_station emergency_ambulance_station.png
+
+mygroup healthcare health_pharmacy.png
+mycp amenity dentist health_dentist.png
+mycp amenity doctors health_doctors3.png
+mycp amenity hospital health_hospital2.png
+mycpname clinic health_clinic.png
+mycp amenity nursing_home health_nursing_home.png
+mycp amenity pharmacy health_pharmacy2.png
+mycp amenity veterinary health_veterinary.png
+mycpname social_facility health_nursing_home.png
+mycpname sanatorium health_sanatorium.png
 
 ## Overlays
 mycp hazard yes overlays_hazard.png
@@ -121,14 +206,11 @@ mycp fixme_tag yes overlays_fixme.png
 mycp fixme_tag_lowzoom yes overlays_fixme_dot.png
 mycp fixme_tag_lowzoom2 yes overlays_fixme_dot_2.png
 mycp note_tag yes overlays_note.png
-
-mygroup healthcare health_pharmacy.png
-mycp amenity dentist health_dentist.png
-mycp amenity doctors health_doctors.png
-mycp amenity hospital health_hospital2.png
-mycp amenity nursing_home health_nursing_home.png
-mycp amenity pharmacy health_pharmacy2.png
-mycp amenity veterinary health_veterinary.png
+mycp osm_note dot overlays_osm_note_dot.png
+mycp osm_note dot_2 overlays_osm_note_dot_2.png
+mycp drinking_water yes_map overlays_drinking_water_yes.png
+mycp drinking_water no_map overlays_drinking_water_no.png
+mycpname access_private overlays_access_private.png
 
 
 ## Traffic + Transportation
@@ -140,21 +222,36 @@ mygroup water_transport transport_ferry_terminal.png
 mygroup bicycle_transport shopping_bicycle.png
 mygroup aerialway_transport transport_aerialway_station.png
 mycp highway crossing_bg functional-icons_highway_crossing_bg.png
-mycp highway crossing_traffic_signals functional-icons_highway_crossing_traffic_signals.png
 mycp highway crossing transport_zebra_crossing2.png
-mycp highway crossing_uncontrolled functional-icons_highway_crossing_uncontrolled.png
-mycp highway crossing_unmarked functional-icons_highway_crossing_unmarked.png
-mycp highway ford transport_ford.png
+mycpname crossing_traffic_signals_map functional-icons_highway_crossing_traffic_signals.png
+mycpname crossing_uncontrolled_map functional-icons_highway_crossing_uncontrolled.png
+mycpname crossing_unmarked_map functional-icons_highway_crossing_unmarked.png
+
+mycpname ford transport_ford.png
 mycp highway milestone functional-icons_milestone.png
 mycp highway mini_roundabout transport_miniroundabout_anticlockwise.png
 mycp highway noexit functional-icons_noexit.png
+mycpname deadlock poi_noexit.png
 mycp highway passing_place functional-icons_passing_place.png
 mycp highway speed_camera transport_speedcamera.png
 mycp highway steps transport_highway_steps.png
-mycp highway traffic_signals functional-icons_traffic_lights.png
-mycp traffic_calming bump transport_speedbump.png
+mycp highway traffic_signals_map functional-icons_traffic_lights.png
+mycp highway traffic_signals transport_traffic_lights.png
+mycpname motorway_junction transport_motorway_junction.png
+mycpname junction transport_junction.png
+mycpname rest_area transport_rest_area.png
+mycpname traffic_calming_bump transport_speedbump.png
+mycpname traffic_calming_rumble_strip transport_rumble_strip.png
+mycpname traffic_calming_chicane transport_chicane.png
+mycpname traffic_calming_choker transport_choker.png
+mycpname traffic_calming_cushion transport_cushion.png
+mycpname traffic_calming_hump transport_hump.png
+mycpname traffic_calming_island transport_traffic_island.png
+mycpname traffic_calming_table transport_table.png
 mycp oneway blue functional-icons_oneway_blue.png
 mycp oneway reverse_blue functional-icons_oneway_reverse_blue.png
+mycp oneway blue_big functional-icons_oneway_blue_big.png
+mycp oneway reverse_blue_big functional-icons_oneway_reverse_blue_big.png
 mycp arrow blue_big functional-icons_arrow_blue_big.png
 mycp arrow blue_big_night functional-icons_arrow_blue_big_night.png
 mycp arrow triangle_black functional-icons_arrow_triangle_black.png
@@ -186,43 +283,52 @@ mycp skimap arrow_2triangles_black_small skimap_arrow_2triangles_black_small.png
 mycp skimap arrow_2triangles_black_small_nobg skimap_arrow_2triangles_black_small_nobg.png
 mycp skimap arrow_2triangles_white_small_nobg skimap_arrow_2triangles_white_small_nobg.png
 mycp harbour yes poi_harbour.png
+mycpname historic_milestone tourist_historic_milestone.png
+mycpname runway transport_runway.png
+mycpname ford_stepping_stones transport_ford_stepping_stones.png
 
 mygroup fuel transport_fuel.png
 mygroup filling_station transport_fuel.png
 mycp amenity charging_station transport_charging_station.png
 mycp amenity fuel_lpg transport_fuel_lpg.png
 mycp amenity fuel transport_fuel.png
+mycpname aeroway_fuel transport_aeroway_fuel.png
+mycpname turning_circle transport_turning_circle.png
 
 mygroup parking transport_parking.png
 mycp amenity parking transport_parking.png
 mycp amenity parking_private transport_parking_private2.png
 mycp amenity parking_paid transport_parking_car_paid.png
-mycp amenity parking_multi_storey transport_parking_multi-storey.png
+mycpname parking_multi_storey transport_parking_multi-storey.png
 mycp amenity parking_multi_storey_paid transport_parking_multi-storey_paid.png
-mycp amenity parking_underground transport_parking_underground.png
+mycpname parking_underground transport_parking_underground.png
 mycp amenity parking_underground_paid transport_parking_underground_paid.png
-mycp amenity bicycle_parking transport_parking_bicycle.png
-mycp bicycle_parking bg transport_parking_bicycle_bg.png
-mycp bicycle_parking stands transport_parking_bicycle_stands.png
-mycp bicycle_parking wall_loops transport_parking_bicycle_wall_loops.png
-mycp bicycle_parking rack transport_parking_bicycle_rack.png
-mycp bicycle_parking anchors transport_parking_bicycle_anchors.png
-mycp bicycle_parking building transport_parking_bicycle_building.png
-mycp bicycle_parking bollard transport_parking_bicycle_bollard.png
-mycp bicycle_parking informal transport_parking_bicycle_informal.png
+mycpname bicycle_parking transport_parking_bicycle.png
+mycpname bicycle_parking_stands transport_bicycle_parking_stands.png
+mycpname bicycle_parking_wall_loops transport_bicycle_parking_wall_loops.png
+mycpname bicycle_parking_rack transport_bicycle_parking_rack.png
+mycpname bicycle_parking_anchors transport_bicycle_parking_anchors.png
+mycpname bicycle_parking_building transport_bicycle_parking_building.png
+mycpname bicycle_parking_shed transport_bicycle_parking_building.png
+mycpname bicycle_parking_bollard transport_bicycle_parking_bollard.png
+mycpname bicycle_parking_informal transport_bicycle_parking_informal.png
 mycp amenity motorcycle_parking transport_parking_motorcycle.png
 mycp amenity motorcycle_parking_paid transport_parking_motorcycle_paid.png
 
 mygroup public_transport transport_bus_stop.png
 mycp amenity bus_station transport_bus_station2.png
+mycpname public_transport_station transport_bus_station.png
+mycpname public_transport_stop_position transport_bus_stop2.png
 mycp highway bus_stop transport_bus_stop.png
 mycp highway bus_stop_small functional-icons_bus_stop_small.png
 mycp highway bus_stop_round_small functional-icons_bus_stop_round_small.png
 mycp highway bus_stop_round_big functional-icons_bus_stop_round_big.png
 mycp highway bus_stop_round_small_night functional-icons_bus_stop_round_small_night.png
 mycp highway bus_stop_round_big_night functional-icons_bus_stop_round_big_night.png
+mycpname bus_station_small functional-icons_bus_station_small.png
 mycp public_transport platform transport_bus_stop.png
 mycp amenity ferry_terminal transport_ferry_terminal.png
+mycpname ferry_terminal_small functional-icons_ferry_terminal_small.png
 mycp amenity taxi transport_taxi_rank.png
 mycp highway services transport_services.png
 mycp mountain pass poi_mountain_pass.png
@@ -237,24 +343,35 @@ mycp leisure marina transport_marina.png
 mycp leisure marina_private transport_marina_private.png
 mycp leisure slipway transport_slipway.png
 mycp man_made lighthouse transport_lighthouse.png
-mycp waterway lock_gate functional-icons_lock_gate.png  #scale 0.5
+mycp waterway lock_gate_small functional-icons_lock_gate.png  #scale 0.5
+mycpname lock_gate poi_lock_gate.png  #scale 0.25
 mycp waterway dock transport_dock.png
 
-mycp railway halt functional-icons_halt.png  #scale 0.25
-mycp railway level_crossing functional-icons_level_crossing.png  #scale 0.5
+mycpname halt_small functional-icons_halt_small.png  #scale 0.25
+mycpname halt_small_2 functional-icons_halt_small_2.png  #scale 0.25
+mycpname halt transport_halt.png  #scale 0.25
+mycpname level_crossing_map functional-icons_level_crossing.png  #scale 0.5
+mycpname level_crossing poi_level_crossing.png  #scale 0.5
 mycp railway platform transport_train_station2.png
 mycp railway station_disused functional-icons_train_station_disused.png
-mycp railway station_small_disused functional-icons_station_small_disused.png
-mycp railway station_small functional-icons_station_small.png  #scale 0.375
-mycp railway station_subway transport_station_subway.png
+mycp railway station_small_disused functional-icons_railway_station_small_disused.png
+mycp railway station_small functional-icons_railway_station_small.png  #scale 0.375
+mycp railway station_subway_map transport_station_subway.png
+mycp railway station_subway_small functional-icons_railway_station_subway_small.png  #scale 0.375
 mycp railway station transport_train_station.png
 mycp railway tram_stop_round_big functional-icons_blue_stop_round_big.png
 mycp railway tram_stop_round_big_night functional-icons_blue_stop_round_big_night.png
 mycp railway tram_stop_round_small functional-icons_blue_stop_round_small.png
 mycp railway tram_stop_round_small_night functional-icons_blue_stop_round_small_night.png
 mycp railway tram_stop transport_tram_stop.png
+mycpname tram_stop_small functional-icons_tram_stop_small.png
+mycpname subway_station transport_subway_station.png
+mycpname funicular transport_funicular.png
+mycpname escape_lane transport_escape_lane.png
 
-mycp railway subway_entrance functional-icons_subway_entrance.png
+mycpname subway_entrance_map functional-icons_subway_entrance_map.png
+mycpname subway_entrance poi_subway_entrance.png
+mycpname subway_entrance transport_subway_entrance.png
 mycp railway subway_entrance_red functional-icons_subway_entrance_red.png
 mycp railway subway_entrance_brown functional-icons_subway_entrance_brown.png
 mycp railway subway_entrance_orange functional-icons_subway_entrance_orange.png
@@ -269,6 +386,7 @@ mycp railway subway_entrance_gray functional-icons_subway_entrance_gray.png
 mycp railway subway_entrance_black functional-icons_subway_entrance_black.png
 
 mycp railway subway_station_small_default functional-icons_subway_station_small_default.png
+mycp railway subway_station_small_default2 functional-icons_subway_station_small_default2.png
 mycp railway subway_station_small_red functional-icons_subway_station_small_red.png
 mycp railway subway_station_small_brown functional-icons_subway_station_small_brown.png
 mycp railway subway_station_small_orange functional-icons_subway_station_small_orange.png
@@ -293,14 +411,79 @@ mycp railway subway_station_small_black functional-icons_subway_station_small_bl
 mycp railway subway_station_small_black2 functional-icons_subway_station_small_black2.png
 mycp railway subway_station_small_white functional-icons_subway_station_small_white.png
 
-mycp aerialway station_small functional-icons_halt.png  #scale 0.25
+mycpname subway_moscow subway_subway_moscow.png
+mycpname subway_samara subway_subway_samara.png
+mycpname subway_budapest subway_subway_budapest.png
+mycpname subway_spb subway_subway_spb.png
+mycpname subway_kazan subway_subway_kazan.png
+mycpname subway_baku subway_subway_baku.png
+mycpname subway_tbilisi subway_subway_tbilisi.png
+mycpname subway_yerevan subway_subway_yerevan.png
+mycpname subway_minsk subway_subway_minsk.png
+mycpname subway_nnovgorod subway_subway_nnovgorod.png
+mycpname subway_novosibirsk subway_subway_novosibirsk.png
+mycpname subway_yekaterinburg subway_subway_yekaterinburg.png
+mycpname subway_germany subway_subway_germany.png
+mycpname subway_wien subway_subway_wien.png
+mycpname subway_madrid subway_subway_madrid.png
+mycpname subway_paris subway_subway_paris.png
+mycpname subway_london subway_subway_london.png
+mycpname subway_barcelona subway_subway_barcelona.png
+mycpname subway_stockholm subway_subway_stockholm.png
+mycpname subway_praha subway_subway_praha.png
+mycpname subway_athens subway_subway_athens.png
+mycpname subway_italy subway_subway_italy.png
+mycpname subway_italy_catania subway_subway_italy_catania.png
+##mycpname subway_italy_brescia subway_subway_italy_brescia.png
+mycpname subway_rotterdam subway_subway_rotterdam.png
+mycpname subway_amsterdam subway_subway_amsterdam.png
+mycpname subway_brussels subway_subway_brussels.png
+mycpname subway_lyon subway_subway_lyon.png
+mycpname subway_chicago subway_subway_chicago.png
+mycpname subway_newyork subway_subway_newyork.png
+mycpname subway_tokyo subway_subway_tokyo.png
+mycpname subway_osaka subway_subway_osaka.png
+mycpname subway_nagoya subway_subway_nagoya.png
+mycpname subway_singapore subway_subway_singapore.png
+mycpname subway_kolkata subway_subway_kolkata.png
+mycpname subway_delhi subway_subway_delhi.png
+mycpname subway_tehran subway_subway_tehran.png
+mycpname subway_cairo subway_subway_cairo.png
+mycpname subway_riodejaneiro subway_subway_riodejaneiro.png
+mycpname subway_tashkent subway_subway_tashkent.png
+mycpname subway_almaty subway_subway_almaty.png
+mycpname subway_manila subway_subway_manila.png
+mycpname subway_toronto subway_subway_toronto.png
+mycpname subway_montreal subway_subway_montreal.png
+mycpname subway_kyiv subway_subway_kyiv.png
+mycpname subway_kharkiv subway_subway_kharkiv.png
+mycpname subway_buenosaires subway_subway_buenosaires.png
+mycpname subway_boston subway_subway_boston.png
+mycpname subway_washington subway_subway_washington.png
+mycpname subway_bucharest subway_subway_bucharest.png
+mycpname subway_losangeles subway_subway_losangeles.png
+
+mycp aerialway station_small functional-icons_aerialway_station_small.png  #scale 0.25
 mycp aerialway station transport_aerialway_station.png  #scale 0.375
+mycpname aerialway_cable_car transport_aerialway_cable_car.png
+mycpname aerialway_chair_lift transport_aerialway_chair_lift.png
+mycpname aerialway_pylon transport_aerialway_pylon.png
+mycpname aerialway_pylon_small functional-icons_aerialway_pylon_small.png
+mycpname aerialway_drag_lift transport_aerialway_drag_lift.png
+mycpname aerialway_platter transport_aerialway_platter.png
+mycpname aerialway_j_bar transport_aerialway_j_bar.png
+mycpname aerialway_t_bar transport_aerialway_t_bar.png
+mycpname aerialway_goods transport_aerialway_goods.png
+mycpname aerialway_magic_carpet transport_aerialway_magic_carpet.png
+mycpname aerialway_gondola transport_aerialway_gondola.png
+mycpname aerialway_rope_tow transport_aerialway_rope_tow.png
 
 mycp aeroway aerodrome_abandoned functional-icons_aerodrome_abandoned.png
 mycp aeroway aerodrome transport_aerodrome.png
 mycp aeroway airport transport_airport.png
 mycp aeroway gate transport_airport_gate.png
 mycp aeroway helipad transport_helicopter_pad.png
+mycpname aeroway_terminal transport_airport_terminal.png
 
 
 ## Barrier
@@ -322,19 +505,26 @@ mycp barrier motorcycle_barrier barrier_cycle_barrier.png
 mycp barrier sally_port barrier_sally_port.png
 mycp barrier stile barrier_stile.png
 mycp barrier swing_gate barrier_swing_gate.png
-mycp barrier toll_booth barrier_toll_booth.png
+mycpname toll_booth barrier_toll_booth.png
 mycp barrier turnstile barrier_turnstile.png
 mycp entrance yes barrier_entrance2.png
-mycp entrance exit functional-icons_entrance_exit.png
-mycp entrance main functional-icons_entrance3.png
+mycpname entrance_exit_map functional-icons_entrance_exit.png
+mycpname entrance_main_map functional-icons_entrance3.png
+mycpname entrance_exit poi_entrance_exit.png
+mycpname entrance_main barrier_entrance2.png
 mycp amenity parking_entrance transport_parking_entrance.png
 mycp building entrance barrier_entrance.png
+mycpname barrier_debris barrier_debris.png
+mycpname barrier_horse_stile barrier_horse_stile.png
+mycpname barrier_jersey_barrier barrier_jersey_barrier.png
 
 
 ## Accommodation
 mygroup accomodation accommodation_hotel.png
 mycp amenity shelter accommodation_shelter2.png
 mycp tourism alpine_hut accommodation_alpinehut.png
+mycpname cabin accommodation_cabin.png
+mycpname lean_to accommodation_lean_to.png
 mycp tourism apartment accommodation_apartment.png
 mycp tourism camp_site accommodation_camping.png
 mycp tourism caravan_site accommodation_caravan_park.png
@@ -343,6 +533,7 @@ mycp tourism guest_house accommodation_bed_and_breakfast.png
 mycp tourism hostel accommodation_hostel.png
 mycp tourism hotel accommodation_hotel.png
 mycp tourism motel accommodation_motel.png
+mycpname wilderness_hut accommodation_wilderness_hut.png
 
 
 ## Tourism
@@ -360,47 +551,86 @@ mycp attraction slide tourist_slide.png
 mycp attraction summer_toboggan tourist_summer_toboggan.png
 mycp attraction swing_carousel tourist_swing_carousel.png
 mycp attraction train tourist_train.png
-mycp attraction water_slide tourist_water_slide.png
+mycp attraction water_slide entertainment_water_slide.png
 mycp tourism aquarium tourist_aquarium.png
 mycp tourism artwork tourist_artwork.png
 mycp tourism attraction tourist_attraction.png
 mycp tourism information tourist_information.png
+mycpname information_office tourist_information_office.png
+mycpname information_board tourist_information_board.png
+mycpname information_guidepost tourist_information_guidepost.png
+mycpname information_map tourist_information_map.png
+mycpname information_terminal tourist_information_terminal.png
+mycpname information_audioguide tourist_information_audioguide.png
 mycp tourism museum tourist_museum.png
 mycp tourism picnic_site tourist_picnic.png
+mycpname picnic_table tourist_picnic_table.png
 mycp tourism theme_park tourist_theme_park.png
 mycp tourism viewpoint tourist_view_point.png
 mycp tourism zoo tourist_zoo.png
+mycpname city_wall tourist_city_wall.png
+mycpname clock tourist_clock.png
+mycpname route_hiking_iwn_poi tourist_route_hiking_iwn_poi.png
+mycpname route_hiking_nwn_poi tourist_route_hiking_nwn_poi.png
+mycpname route_hiking_rwn_poi tourist_route_hiking_rwn_poi.png
+mycpname route_hiking_lwn_poi tourist_route_hiking_lwn_poi.png
+mycpname icn_ref tourist_icn_ref.png
+mycpname ncn_ref tourist_ncn_ref.png
+mycpname rcn_ref tourist_rcn_ref.png
+mycpname lcn_ref tourist_lcn_ref.png
+mycpname iwn_ref tourist_iwn_ref.png
+mycpname nwn_ref tourist_nwn_ref.png
+mycpname rwn_ref tourist_rwn_ref.png
+mycpname lwn_ref tourist_lwn_ref.png
+mycpname gallery tourist_gallery.png
+mycpname firepit tourist_firepit.png
 
 ## Entertainment
-mygroup entertainment tourist_cinema.png
+mygroup entertainment tourist_cinema3.png
 mygroup club tourist_night_club.png
-mycp amenity arts_centre tourist_art_gallery2.png
+mycp amenity arts_centre tourist_art_gallery.png
 mycp amenity casino tourist_casino.png
-mycp amenity cinema tourist_cinema.png
+mycp amenity cinema tourist_cinema3.png
 mycp amenity nightclub tourist_night_club.png
-mycp amenity stripclub tourist_night_club.png
+mycp amenity stripclub amenity_stripclub.png
 mycp amenity theatre tourist_theatre.png
+mycpname hackerspace entertainment_hackerspace.png
+mycpname leisure_common entertainment_leisure_common.png
+mycpname love_hotel entertainment_love_hotel.png
 
 
 ## Historic
 mygroup historic tourist_archaeological2.png
 mycp historic archaeological_site tourist_archaeological2.png
 mycp historic battlefield tourist_battlefield.png
-mycp historic boundary_stone poi_boundary_administrative.png
+mycp historic boundary_stone tourist_boundary_stone.png
 mycp historic cannon tourist_cannon.png
 mycp historic castle tourist_castle2.png
-mycp historic fort tourist_castle2.png
+mycpname city_gate barrier_sally_port.png
 mycp historic memorial tourist_memorial.png
 mycp historic mine poi_mine_abandoned.png
-mycp historic monument tourist_monument.png
+mycpname monument tourist_monument2.png
 mycp historic ruins tourist_ruin.png
 mycp historic rune_stone tourist_rune_stone.png
 mycp historic ship tourist_ship.png
 mycp historic wayside_cross tourist_wayside_cross.png
 mycp historic wayside_shrine tourist_wayside_shrine.png
-mycp historic wreck tourist_wreck.png
-mycp geologic palaeontological_site tourist_palaeontological_site.png
+mycpname wreck tourist_wreck.png
+mycpname palaeontological_site tourist_palaeontological_site.png
 mycp building pyramid tourist_pyramid.png
+mycpname tomb tourist_tomb.png
+mycpname historic_aircraft tourist_historic_aircraft.png
+mycpname technical_monument tourist_technical_monument.png
+mycpname memorial_stolperstein tourist_memorial_stolperstein.png
+mycpname memorial_bust tourist_bust.png
+mycpname memorial_obelisk tourist_obelisk.png
+mycpname memorial_plaque tourist_plaque.png
+mycpname memorial_statue tourist_statue.png
+mycpname memorial_stele tourist_stele.png
+mycpname memorial_war tourist_war_memorial.png
+mycpname historic_manor tourist_historic_manor.png
+mycpname historic_stone tourist_historic_stone.png
+mycpname prison_camp tourist_prison_camp.png
 
 ## Special POI icons
 mycp special_poi big_ben special_poi_big_ben.png
@@ -433,10 +663,11 @@ mycp sport diving sport_diving.png
 mycp sport golf sport_golf.png
 mycp sport gymnastics sport_gymnasium.png
 mycp sport handball sport_handball.png
-mycp sport hockey sport_hockey.png
+mycpname ice_hockey sport_ice_hockey.png
+mycpname field_hockey sport_field_hockey.png
 mycp sport horse_racing sport_horse_racing.png
 mycp sport motor sport_motorracing.png
-mycp sport paragliding sport_paragliding.png
+mycpname sport_free_flying sport_free_flying.png
 mycp sport rugby_league sport_rugby_league.png
 mycp sport rugby_union sport_rugby_union.png
 mycp sport sailing sport_sailing.png
@@ -452,19 +683,43 @@ mycp sport swimming sport_swimming_outdoor.png
 mycp sport table_tennis sport_table_tennis.png
 mycp sport tennis sport_tennis.png
 mycp sport volleyball sport_volleyball.png
+mycpname pitch sport_pitch.png
+mycpname swimming_pool sport_swimming_outdoor.png
+mycpname leisure_track sport_leisure_track.png
+mycpname ice_skating sport_iceskating.png
+mycpname orienteering sport_orienteering.png
+mycpname golf_course sport_golf.png
+mycpname horse_riding sport_horse_riding.png
+mycpname model_aerodrome sport_model_aerodrome.png
+mycpname american_football sport_american_football.png
+mycpname raceway sport_raceway.png
+mycpname fitness_centre sport_fitness_centre.png
+mycpname billiards sport_billiards.png
+mycpname chess sport_chess.png
+mycpname gaelic_games sport_gaelic_games.png
+mycpname running sport_running.png
+mycpname karting sport_karting.png
+mycpname badminton sport_badminton.png
+mycpname ice_stock sport_ice_stock.png
+mycpname korfball sport_korfball.png
+mycpname judo sport_judo.png
+mycpname rc_car sport_rc_car.png
+mycpname bandy sport_bandy.png
 
 
 ## Leisure
 mygroup leisure sport_playground.png
 mycp leisure beach_resort tourist_beach_resort.png
-mycp leisure bird_hide poi_tower_lookout.png
+mycp leisure bird_hide entertainment_bird_hide.png
 mycp leisure fishing sport_fishing.png  #used shop=fish turned by 45 degrees for now
 mycp leisure ice_rink sport_iceskating.png
 mycp leisure miniature_golf sport_miniature_golf.png
 mycp leisure playground sport_playground.png
 mycp leisure sports_centre sport_leisure_centre2.png
-mycp leisure water_park sport_swimming_outdoor.png
+mycp leisure water_park entertainment_water_slide.png
 mycp amenity sauna sport_sauna.png
+mycpname fitness_station sport_fitness_station.png
+mycpname solarium amenity_solarium.png
 
 mygroup geocache poi_point_of_interest.png
 mycp geocache not_found poi_point_of_interest.png
@@ -475,12 +730,13 @@ mycp geocache found poi_point_of_interest.png
 mygroup other amenity_post_office.png
 mygroup place_of_worship place_of_worship_unknown.png
 mygroup internet_access amenity_internet_access.png
-mycp amenity bench functional-icons_bench.png
 mycp amenity car_wash amenity_car_wash.png
-mycp amenity car_wash_self_service amenity_car_wash_self_service.png
-mycp amenity fountain amenity_fountain2.png
+mycpname car_wash_self_service amenity_car_wash_self_service.png
+mycpname vehicle_inspection amenity_vehicle_inspection.png
+mycp amenity fountain water_fountain2.png
 mycp amenity fountain_night functional-icons_fountain2_night.png
 mycp amenity monastery place_of_worship_monastery.png
+mycpname historic_monastery place_of_worship_monastery.png
 mycp amenity place_of_worship place_of_worship_unknown.png
 mycp amenity post_box amenity_post_box.png
 mycp amenity post_office amenity_post_office2.png
@@ -489,7 +745,7 @@ mycp amenity recycling amenity_recycling.png
 mycp amenity telephone amenity_telephone.png
 mycp amenity toilets amenity_toilets.png
 mycp amenity vehicle_ramp amenity_vehicle_ramp.png
-mycp service tyres amenity_service_tyres.png
+mycpname service_tyres amenity_service_tyres.png
 mycp religion christian place_of_worship_christian3.png
 mycp religion jewish place_of_worship_jewish3.png
 mycp religion muslim place_of_worship_islamic3.png
@@ -498,15 +754,64 @@ mycp religion buddhist place_of_worship_buddhist3.png
 mycp religion hindu place_of_worship_hindu3.png
 mycp religion shinto place_of_worship_shinto3.png
 mycp religion taoist place_of_worship_taoist.png
-mycp amenity brothel amenity_brothel.png
-mycp amenity smoking_area amenity_smoking_area.png
-mycp amenity studio amenity_studio.png
+mycpname brothel amenity_brothel.png
+mycpname smoking_area amenity_smoking_area.png
+mycpname studio amenity_studio.png
+mycpname waste_basket amenity_waste_bin.png
+mycpname waste_basket2 amenity_waste_basket.png
+mycpname waste_disposal amenity_waste_disposal.png
+mycpname shower amenity_shower.png
+mycpname bench amenity_bench.png
+mycpname dry_cleaning amenity_dry_cleaning.png
+mycpname massage amenity_massage.png
+mycpname funeral_directors amenity_funeral_directors.png
+mycpname internet_access_wlan amenity_internet_access_wlan.png
+mycpname internet_access_wired amenity_internet_access_wired.png
 #! mycp amenity grave_yard place_of_worship_christian3.png  #already defined as icon in the shader section
+mycpname watering_place amenity_watering_place.png
+mycpname animal_shelter amenity_animal_shelter.png
+mycpname animal_boarding amenity_animal_boarding.png
+mycpname baby_hatch amenity_baby_hatch.png
+mycpname boat_storage amenity_boat_storage.png
+mycpname crematorium amenity_crematorium.png
+mycpname mortuary amenity_mortuary.png
+mycpname internet_access_yes amenity_internet_access_wlan.png
+mycpname customs amenity_customs.png
+mycpname dojo amenity_dojo.png
+mycpname social_centre amenity_social_centre.png
+mycpname compressed_air amenity_compressed_air.png
+mycpname amenity_vacuum_cleaner amenity_vacuum_cleaner.png
+mycpname bicycle_repair_station amenity_bicycle_repair_station.png
+mycpname water_tap amenity_water_tap.png
 
 mygroup craft craft_tailor.png
+mycpname craft_beekeeper craft_beekeeper.png
+mycpname craft_blacksmith craft_blacksmith.png
+mycpname craft_brewery craft_brewery.png
+mycpname craft_locksmith craft_locksmith.png
+mycpname craft_painter craft_painter.png
+mycpname craft_tailor craft_tailor.png
+mycpname craft_shoemaker craft_shoemaker.png
+mycpname craft_jeweller craft_jeweller.png
+mycpname craft_agricultural_engines craft_agricultural_engines.png
+mycpname craft_boatbuilder craft_boatbuilder.png
+mycpname craft_electrician craft_electrician.png
+mycpname craft_handicraft craft_handicraft.png
+mycpname craft_hvac craft_hvac.png
+mycpname craft_insulation craft_insulation.png
+mycpname craft_photographic_laboratory craft_photographic_laboratory.png
+mycpname craft_clockmaker craft_clockmaker.png
+mycpname craft_key_cutter craft_key_cutter.png
+mycpname craft_plasterer craft_plasterer.png
+mycpname craft_plumber craft_plumber.png
+mycpname craft_roofer craft_roofer.png
+mycpname craft_stonemason craft_stonemason.png
+mycpname craft_carpenter craft_carpenter.png
+mycpname craft_sawmill craft_sawmill.png
 
 mygroup finance money_bank2.png
 mycp amenity atm money_atm.png
+mycpname payment_terminal money_payment_terminal.png
 mycp amenity bank money_bank2.png
 mycp amenity bureau_de_change money_currency_exchange.png
 mycp bitcoin yes money_bitcoin.png
@@ -519,62 +824,99 @@ mycp amenity library amenity_library.png
 mycp amenity public_building amenity_public_building.png
 mycp amenity social_centre amenity_public_building.png
 mycp amenity townhall amenity_town_hall2.png
-mycp office government amenity_public_building.png
+mycpname register_office amenity_register_office.png
 
 mygroup service amenity_service.png
+mygroup landuse landuse_landuse.png
 
 ## Education
 mygroup education education_university.png
 mycp amenity college education_college.png
-mycp amenity kindergarten education_nursery2.png
+mycpname kindergarten education_kindergarten.png
 mycp amenity school education_school.png
 mycp amenity university education_university.png
+mycpname driving_school education_driving_school.png
+mycpname training education_training.png
+mycpname training_yoga education_training_yoga.png
 
 
 ## Man made
-mygroup man_made power_station_wind2.png
-mygroup transport_construction transport_bridge.png
+mygroup man_made power_generator_wind2.png
+mygroup transport_construction poi_bridge.png
 mygroup water_supply poi_water_tower.png
-mygroup power power_station.png
+mygroup power power_generator.png
 mygroup communication amenity_telephone.png
-mygroup trash_disposal landuse_landfill.png
+mygroup trash_disposal amenity_waste_disposal.png
+mycpname bridge poi_bridge.png
+mycpname tunnel poi_tunnel.png
 mycp amenity hunting_stand poi_hunting_stand.png
 mycp highway street_lamp functional-icons_street_lamp.png
 mycp highway street_lamp_lit functional-icons_street_lamp_lit.png
-mycp landuse abandoned functional-icons_abandoned.png
 mycp man_made adit poi_adit.png
 mycp man_made antenna poi_antenna.png
 mycp man_made chimney poi_chimney.png
 mycp man_made crane poi_crane.png
 mycp man_made mast poi_mast.png
 mycp man_made mineshaft poi_mine.png
-mycp man_made monitoring_station_radar poi_monitoring_station_radar.png
-mycp man_made observatory_astronomical poi_observatory_astronomical.png
+mycpname radar poi_monitoring_station_radar.png
+mycpname astronomical_observatory poi_observatory_astronomical.png
 mycp man_made observatory poi_observatory.png
+mycpname observation_tower poi_observatory.png
 mycp man_made petroleum_well poi_petroleum_well.png
 mycp man_made survey_point poi_survey_point.png
 mycp man_made tower poi_tower.png
-mycp man_made tower_type_bell_tower poi_tower_bell_tower.png
-mycp man_made tower_type_communication poi_tower_communications2.png
-mycp man_made tower_type_cooling poi_tower_cooling.png
-mycp man_made tower_type_lighting poi_tower_lighting.png
+mycpname bell_tower poi_tower_bell_tower.png
+mycpname communication_tower poi_tower_communications2.png
+mycpname cooling_tower poi_tower_cooling.png
+mycpname lighting_tower poi_tower_lighting.png
 mycp man_made water_tower poi_water_tower.png
 mycp man_made windmill poi_windmill.png
 mycp no icon functional-icons_no_icon.png
-mycp power station_coal power_station_coal.png
-mycp power station_gas power_station_gas.png
-mycp power station_geothermal power_station_geothermal.png
-mycp power station_nuclear power_station_nuclear.png
-mycp power station_oil power_station_oil.png
-mycp power station power_station.png
-mycp power station_solar power_station_solar.png
-mycp power station_water power_station_water2.png
-mycp power station_wind power_station_wind.png
+mycpname generator_source_coal power_generator_coal.png
+mycpname generator_source_gas power_generator_gas.png
+mycpname generator_source_geothermal power_generator_geothermal.png
+mycpname generator_source_nuclear power_generator_nuclear.png
+mycpname generator_source_oil power_generator_oil.png
+mycpname generator_source_diesel power_generator_diesel.png
+mycpname generator_source_solar power_generator_solar.png
+mycpname generator_source_hydro power_generator_water2.png
+mycpname generator_source_wind power_generator_wind.png
+mycpname power_generator power_generator.png
+mycpname power_plant power_plant.png
 mycp power substation power_transformer2.png
-mycp power tower_big functional-icons_power_tower_big.png
-mycp power tower functional-icons_power_tower.png
+mycp power tower poi_power_tower.png
+mycp power tower_square functional-icons_power_tower.png
 mycp power tower_small functional-icons_power_tower_small.png
+mycp power tower_small2 functional-icons_power_tower_small2.png
+mycpname power_generator power_generator.png
 mycp railway buffer_stop poi_buffer_stop.png
+mycpname power_transformer power_transformer_small.png
+mycpname works poi_works.png
+mycpname military_bunker poi_military_bunker.png
+mycpname military_airfield poi_military_airfield.png
+mycpname abandoned_poi poi_abandoned_poi.png
+mycpname surveillance poi_surveillance.png
+mycpname pier poi_pier.png
+mycpname beacon poi_beacon.png
+mycpname breakwater poi_breakwater.png
+mycpname military_range poi_military_range.png
+mycpname power_cable_distribution_cabinet power_cable_distribution_cabinet.png
+mycpname kiln poi_kiln.png
+mycpname cairn poi_cairn.png
+mycpname groyne poi_groyne.png
+mycpname military_naval_base poi_military_naval_base.png
+mycpname building_map functional-icons_building_map.png
+mycpname square poi_square.png
+mycpname building poi_building.png
+mycpname cross poi_cross.png
+mycpname storage_tank poi_storage_tank.png
+mycpname wastewater_plant poi_wastewater_plant.png
+mycpname water_works poi_water_works.png
+mycpname watermill poi_watermill.png
+mycpname monitoring_station poi_monitoring_station.png
+mycpname dolphin poi_dolphin.png
+mycpname street_cabinet poi_street_cabinet.png
+
 mygroup military poi_military_bunker.png
 
 
@@ -587,11 +929,11 @@ mycp amenity biergarten food_biergarten.png
 mycp amenity cafe food_cafe.png
 mycp amenity drinking_water food_drinkingtap.png
 mycp amenity fast_food food_fastfood.png
-mycp amenity food_court food_fastfood.png
-mycp amenity ice_cream food_ice_cream.png
+mycp amenity food_court food_food_court.png
 mycp amenity pub food_pub.png
 mycp amenity restaurant food_restaurant.png
 mycp man_made water_well food_water_well.png
+mycpname water_point food_water_point.png
 
 ## Seamarks
 mygroup seamark icons8_sail_boat.png
@@ -753,6 +1095,7 @@ mycp seamark fog_signal seamark_fog_signal.png
 mycp seamark radar_transponder seamark_radar_transponder.png
 mycp seamark radio_station seamark_radio_station.png
 mycp seamark platform seamark_platform.png
+mycp seamark platform_small seamark_small_platform_small.png
 
 mycp seamark landmark_tower seamark_big_landmark_tower.png
 mycp seamark landmark_windmotor seamark_big_landmark_windmotor.png
@@ -1166,6 +1509,9 @@ mycp seamark waterway_gauge seamark_waterway_gauge.png
 mycp seamark wreck seamark_wreck.png
 mycp seamark wreck_hull_showing seamark_wreck_hull_showing.png
 
+mycp seamark power_line seamark_small_power_line.png
+mycp seamark submarine_cable seamark_small_submarine_cable.png
+
 ## Skimap
 mycp skimap overlay_advanced skimap_overlay_advanced.png
 mycp skimap overlay_easy skimap_overlay_easy.png
@@ -1174,11 +1520,24 @@ mycp skimap overlay_extreme skimap_overlay_extreme.png
 mycp skimap overlay_freeride skimap_overlay_freeride.png
 mycp skimap overlay_intermediate skimap_overlay_intermediate.png
 mycp skimap overlay_novice skimap_overlay_novice.png
-mycp piste_type downhill skimap_piste_downhill.png
-mycp piste_type hike skimap_piste_hike.png
-mycp piste_type nordic skimap_piste_nordic.png
-mycp piste_type skitour skimap_piste_skitour.png
-mycp piste_type sled skimap_piste_sled.png
+mycpname piste skimap_piste.png
+mycp piste downhill skimap_piste_downhill.png
+mycp piste hike skimap_piste_hike.png
+mycp piste nordic skimap_piste_nordic.png
+mycp piste nordic_black skimap_piste_nordic_black.png
+mycp piste nordic_blue skimap_piste_nordic_blue.png
+mycp piste nordic_brown skimap_piste_nordic_brown.png
+mycp piste nordic_darkyellow skimap_piste_nordic_darkyellow.png
+mycp piste nordic_gray skimap_piste_nordic_gray.png
+mycp piste nordic_green skimap_piste_nordic_green.png
+mycp piste nordic_lightblue skimap_piste_nordic_lightblue.png
+mycp piste nordic_lightgreen skimap_piste_nordic_lightgreen.png
+mycp piste nordic_orange skimap_piste_nordic_orange.png
+mycp piste nordic_purple skimap_piste_nordic_purple.png
+mycp piste nordic_red skimap_piste_nordic_red.png
+mycp piste nordic_yellow skimap_piste_nordic_yellow.png
+mycp piste skitour skimap_piste_skitour.png
+mycp piste sled skimap_piste_sled.png
 mycp skimap gray_black_round_shield skimap_gray_black_round_shield.png
 mycp skimap white_black_round_shield skimap_white_black_round_shield.png
 
@@ -1193,6 +1552,7 @@ mycp shop alcohol shopping_alcohol.png
 mycp shop baby_goods shopping_baby.png
 mycp shop bakery shopping_bakery.png
 mycp shop bicycle shopping_bicycle.png
+mycpname beverages shopping_beverages.png
 mycp shop books shopping_book2.png
 mycp shop boutique shopping_clothes.png
 mycp shop butcher shopping_butcher2.png
@@ -1208,28 +1568,30 @@ mycp shop copyshop shopping_copyshop.png
 mycp shop dairy shopping_dairy.png
 mycp shop department_store shopping_department_store.png
 mycp shop doityourself shopping_diy.png
-mycp shop electronics shopping_hifi.png
+mycpname electronics shopping_electronics.png
+mycpname hifi shopping_hifi.png
 mycp shop fashion shopping_clothes.png
 mycp shop fishing shopping_tackle.png
 mycp shop florist shopping_florist.png
 mycp shop furniture shopping_furniture.png
 mycp shop garden_centre shopping_garden_centre.png
-mycp shop general shopping_convenience.png
+mycpname shop_yes shopping_general.png
 mycp shop gift shopping_gift.png
 mycp shop greengrocer shopping_greengrocer.png
 mycp shop hairdresser shopping_hairdresser.png
 mycp shop hardware shopping_diy.png
 mycp shop hearing_aids shopping_hearing_aids.png
+mycpname ice_cream food_ice_cream.png
 mycp shop jewelry shopping_jewelry2.png
 mycp shop kiosk shopping_kiosk.png
 mycp shop laundry shopping_laundrette.png
 mycp shop mall shopping_department_store.png
 mycp shop mobile_phone shopping_mobile_phone.png
 mycp shop motorcycle shopping_motorcycle.png
-mycp shop musical_instrument shopping_music.png
+mycp shop musical_instrument shopping_musical_instrument.png
 mycp shop optician shopping_opticians.png
-mycp shop outdoor shopping_tackle.png
 mycp shop pet shopping_pet2.png
+mycpname photo shopping_photo.png
 mycp shop seafood shopping_fish.png
 mycp shop shoes shopping_shoes.png
 mycp shop sports shopping_sports.png
@@ -1238,13 +1600,120 @@ mycp shop ticket shopping_ticket.png
 mycp shop tobacco shopping_tobacco.png
 mycp shop toys shopping_toys.png
 mycp shop video shopping_video_rental.png
+mycpname wine shopping_wine.png
+mycpname outdoor shopping_outdoor.png
+mycpname tyres shopping_tyres.png
+mycpname cosmetics shopping_cosmetics.png
+mycpname leather shopping_leather.png
+mycpname medical_supply shopping_medical_supply.png
+mycpname cheese shopping_cheese.png
+mycpname chocolate shopping_chocolate.png
+mycpname coffee shopping_coffee.png
+mycpname farm shopping_farm.png
+mycpname tea shopping_tea.png
+mycpname pastry shopping_pastry.png
+mycpname antiques shopping_antiques.png
+mycpname bag shopping_bag.png
+mycpname bed shopping_bed.png
+mycpname boutique shopping_boutique.png
+mycpname bathroom_furnishing shopping_bathroom_furnishing.png
+mycpname camera shopping_camera.png
+mycpname carpet shopping_carpet.png
+mycpname chemist shopping_chemist.png
+mycpname curtain shopping_curtain.png
+mycpname fabric shopping_fabric.png
+mycpname bedding shopping_bedding.png
+mycpname dive shopping_dive.png
+mycpname erotic shopping_erotic.png
+mycpname fashion shopping_fashion.png
+mycpname frame shopping_frame.png
+mycpname free_flying shopping_free_flying.png
+mycpname furnace shopping_furnace.png
+mycpname gas shopping_gas.png
+mycpname glaziery shopping_glaziery.png
+mycpname herbalist shopping_herbalist.png
+mycpname houseware shopping_houseware.png
+mycpname hunting shopping_hunting.png
+mycpname beauty shopping_beauty.png
+mycpname interior_decoration shopping_interior_decoration.png
+mycpname art shopping_art.png
+mycpname model shopping_model.png
+mycpname music shopping_music.png
+mycpname newsagent shopping_newsagent.png
+mycpname paint shopping_paint.png
+mycpname radiotechnics shopping_radiotechnics.png
+mycpname scuba_diving_shop shopping_scuba_diving_shop.png
+mycpname stationery shopping_stationery.png
+mycpname tableware shopping_tableware.png
+mycpname trophy shopping_trophy.png
+mycpname trade shopping_trade.png
+mycpname vacuum_cleaner shopping_vacuum_cleaner.png
+mycpname tattoo shopping_tattoo.png
+mycpname perfumery shopping_perfumery.png
+mycpname pawnbroker shopping_pawnbroker.png
+mycpname second_hand shopping_second_hand.png
+mycpname honey shopping_honey.png
+mycpname charity shopping_charity.png
+mycpname energy shopping_energy.png
+mycpname variety_store shopping_variety_store.png
+mycpname kitchen shopping_kitchen.png
+mycpname video_games shopping_video_games.png
+mycpname pyrotechnics shopping_pyrotechnics.png
+mycpname weapons shopping_weapons.png
+mycpname window_blind shopping_window_blind.png
+mycpname watches shopping_watches.png
+mycpname candles shopping_candles.png
+mycpname religion shopping_religion.png
+
+## Office
+mycpname estate_agent office_estate_agent.png
+mycpname insurance office_insurance.png
+mycpname research office_research.png
+mycpname travel_agent office_travel_agent.png
+mycpname it office_it.png
+mycp office government office_government.png
+mycpname company office_company.png
+mycpname advertising_agency office_advertising_agency.png
+mycpname employment_agency office_employment_agency.png
+mycpname lawyer office_lawyer.png
+mycpname office_administrative office_administrative.png
+mycpname ngo office_ngo.png
+mycpname political_party office_political_party.png
+mycpname office_telecommunication office_telecommunication.png
+mycpname accountant office_accountant.png
+mycpname architect office_architect.png
+mycpname office_camping office_camping.png
+mycpname educational_institution office_educational_institution.png
+mycpname office_foundation office_foundation.png
+mycpname guide office_guide.png
+mycpname newspaper office_newspaper.png
+mycpname quango office_quango.png
+mycpname tax_advisor office_tax_advisor.png
+mycpname consulting office_consulting.png
+mycpname cooperative office_cooperative.png
+mycpname financial office_financial.png
+mycpname forestry office_forestry.png
+mycpname logistics office_logistics.png
+mycpname notary office_notary.png
+mycpname parish office_parish.png
+mycpname publisher office_publisher.png
+
+## Entertainment
+mycpname park entertainment_park.png
+mycpname dance_floor entertainment_dance_floor.png
+mycpname dog_park entertainment_dog_park.png
+mycpname ski_resort entertainment_ski_resort.png
+mycpname bandstand entertainment_bandstand.png
 
 
 # mygroup custom_id icons8 #TODO
 mygroup user_defined icons8_user.png
+mygroup user_defined_other icons8_user.png
 mygroup osmwiki icons8_wikipedia.png
+mycpname wiki_place poi_wikipedia2.png
 mygroup name_finder icons8_web_search.png
 mycp osmand waypoint functional-icons_waypoint.png
+mycp osmand fav functional-icons_fav.png
 mygroup null icons8_worldwide_location.png
 
 mycp stub amenity functional-icons_stub_amenity.png
@@ -1257,3 +1726,388 @@ mycp stub office functional-icons_stub_office.png
 mycp stub man_made functional-icons_stub_man_made.png
 mycp stub shop functional-icons_stub_shop.png
 mycp stub tourism functional-icons_stub_tourism.png
+
+#OSMC
+mycpname osmc_black_arch osmc_black_osmc_black_arch.png
+mycpname osmc_black_backslash osmc_black_osmc_black_backslash.png
+mycpname osmc_black_bar osmc_black_osmc_black_bar.png
+mycpname osmc_black_bicycle osmc_black_osmc_black_bicycle.png
+mycpname osmc_black_bowl osmc_black_osmc_black_bowl.png
+mycpname osmc_black_circle osmc_black_osmc_black_circle.png
+mycpname osmc_black_circle_arrow osmc_black_osmc_black_circle_arrow.png
+mycpname osmc_black_corner osmc_black_osmc_black_corner.png
+mycpname osmc_black_cross osmc_black_osmc_black_cross.png
+mycpname osmc_black_diamond osmc_black_osmc_black_diamond.png
+mycpname osmc_black_diamond_line osmc_black_osmc_black_diamond_line.png
+mycpname osmc_black_dot osmc_black_osmc_black_dot.png
+mycpname osmc_black_drop_line osmc_black_osmc_black_drop_line.png
+mycpname osmc_black_fork osmc_black_osmc_black_fork.png
+mycpname osmc_black_hiker osmc_black_osmc_black_hiker.png
+mycpname osmc_black_house osmc_black_osmc_black_house.png
+mycpname osmc_black_l osmc_black_osmc_black_l.png
+mycpname osmc_black_m osmc_black_osmc_black_m.png
+mycpname osmc_black_lower osmc_black_osmc_black_lower.png
+mycpname osmc_black_pointer osmc_black_osmc_black_pointer.png
+mycpname osmc_black_pointer_line osmc_black_osmc_black_pointer_line.png
+mycpname osmc_black_rectangle osmc_black_osmc_black_rectangle.png
+mycpname osmc_black_rectangle_line osmc_black_osmc_black_rectangle_line.png
+mycpname osmc_black_slash osmc_black_osmc_black_slash.png
+mycpname osmc_black_stripe osmc_black_osmc_black_stripe.png
+mycpname osmc_black_t osmc_black_osmc_black_t.png
+mycpname osmc_black_triangle osmc_black_osmc_black_triangle.png
+mycpname osmc_black_triangle_line osmc_black_osmc_black_triangle_line.png
+mycpname osmc_black_triangle_turned osmc_black_osmc_black_triangle_turned.png
+mycpname osmc_black_turned_t osmc_black_osmc_black_turned_t.png
+mycpname osmc_black_upper osmc_black_osmc_black_upper.png
+mycpname osmc_black_x osmc_black_osmc_black_x.png
+
+mycpname osmc_blue_arch osmc_blue_osmc_blue_arch.png
+mycpname osmc_blue_backslash osmc_blue_osmc_blue_backslash.png
+mycpname osmc_blue_bar osmc_blue_osmc_blue_bar.png
+mycpname osmc_blue_bicycle osmc_blue_osmc_blue_bicycle.png
+mycpname osmc_blue_bowl osmc_blue_osmc_blue_bowl.png
+mycpname osmc_blue_circle osmc_blue_osmc_blue_circle.png
+mycpname osmc_blue_circle_arrow osmc_blue_osmc_blue_circle_arrow.png
+mycpname osmc_blue_corner osmc_blue_osmc_blue_corner.png
+mycpname osmc_blue_cross osmc_blue_osmc_blue_cross.png
+mycpname osmc_blue_diamond osmc_blue_osmc_blue_diamond.png
+mycpname osmc_blue_diamond_line osmc_blue_osmc_blue_diamond_line.png
+mycpname osmc_blue_dot osmc_blue_osmc_blue_dot.png
+mycpname osmc_blue_drop_line osmc_blue_osmc_blue_drop_line.png
+mycpname osmc_blue_fork osmc_blue_osmc_blue_fork.png
+mycpname osmc_blue_hiker osmc_blue_osmc_blue_hiker.png
+mycpname osmc_blue_house osmc_blue_osmc_blue_house.png
+mycpname osmc_blue_l osmc_blue_osmc_blue_l.png
+mycpname osmc_blue_m osmc_blue_osmc_blue_m.png
+mycpname osmc_blue_lower osmc_blue_osmc_blue_lower.png
+mycpname osmc_blue_pointer osmc_blue_osmc_blue_pointer.png
+mycpname osmc_blue_pointer_line osmc_blue_osmc_blue_pointer_line.png
+mycpname osmc_blue_rectangle osmc_blue_osmc_blue_rectangle.png
+mycpname osmc_blue_rectangle_line osmc_blue_osmc_blue_rectangle_line.png
+mycpname osmc_blue_slash osmc_blue_osmc_blue_slash.png
+mycpname osmc_blue_stripe osmc_blue_osmc_blue_stripe.png
+mycpname osmc_blue_t osmc_blue_osmc_blue_t.png
+mycpname osmc_blue_triangle osmc_blue_osmc_blue_triangle.png
+mycpname osmc_blue_triangle_line osmc_blue_osmc_blue_triangle_line.png
+mycpname osmc_blue_triangle_turned osmc_blue_osmc_blue_triangle_turned.png
+mycpname osmc_blue_turned_t osmc_blue_osmc_blue_turned_t.png
+mycpname osmc_blue_upper osmc_blue_osmc_blue_upper.png
+mycpname osmc_blue_x osmc_blue_osmc_blue_x.png
+
+mycpname osmc_green_arch osmc_green_osmc_green_arch.png
+mycpname osmc_green_backslash osmc_green_osmc_green_backslash.png
+mycpname osmc_green_bar osmc_green_osmc_green_bar.png
+mycpname osmc_green_bicycle osmc_green_osmc_green_bicycle.png
+mycpname osmc_green_bowl osmc_green_osmc_green_bowl.png
+mycpname osmc_green_circle osmc_green_osmc_green_circle.png
+mycpname osmc_green_circle_arrow osmc_green_osmc_green_circle_arrow.png
+mycpname osmc_green_corner osmc_green_osmc_green_corner.png
+mycpname osmc_green_cross osmc_green_osmc_green_cross.png
+mycpname osmc_green_diamond osmc_green_osmc_green_diamond.png
+mycpname osmc_green_diamond_line osmc_green_osmc_green_diamond_line.png
+mycpname osmc_green_dot osmc_green_osmc_green_dot.png
+mycpname osmc_green_drop_line osmc_green_osmc_green_drop_line.png
+mycpname osmc_green_fork osmc_green_osmc_green_fork.png
+mycpname osmc_green_hiker osmc_green_osmc_green_hiker.png
+mycpname osmc_green_house osmc_green_osmc_green_house.png
+mycpname osmc_green_l osmc_green_osmc_green_l.png
+mycpname osmc_green_m osmc_green_osmc_green_m.png
+mycpname osmc_green_lower osmc_green_osmc_green_lower.png
+mycpname osmc_green_pointer osmc_green_osmc_green_pointer.png
+mycpname osmc_green_pointer_line osmc_green_osmc_green_pointer_line.png
+mycpname osmc_green_rectangle osmc_green_osmc_green_rectangle.png
+mycpname osmc_green_rectangle_line osmc_green_osmc_green_rectangle_line.png
+mycpname osmc_green_slash osmc_green_osmc_green_slash.png
+mycpname osmc_green_stripe osmc_green_osmc_green_stripe.png
+mycpname osmc_green_t osmc_green_osmc_green_t.png
+mycpname osmc_green_triangle osmc_green_osmc_green_triangle.png
+mycpname osmc_green_triangle_line osmc_green_osmc_green_triangle_line.png
+mycpname osmc_green_triangle_turned osmc_green_osmc_green_triangle_turned.png
+mycpname osmc_green_turned_t osmc_green_osmc_green_turned_t.png
+mycpname osmc_green_upper osmc_green_osmc_green_upper.png
+mycpname osmc_green_x osmc_green_osmc_green_x.png
+
+mycpname osmc_orange_arch osmc_orange_osmc_orange_arch.png
+mycpname osmc_orange_backslash osmc_orange_osmc_orange_backslash.png
+mycpname osmc_orange_bar osmc_orange_osmc_orange_bar.png
+mycpname osmc_orange_bicycle osmc_orange_osmc_orange_bicycle.png
+mycpname osmc_orange_bowl osmc_orange_osmc_orange_bowl.png
+mycpname osmc_orange_circle osmc_orange_osmc_orange_circle.png
+mycpname osmc_orange_circle_arrow osmc_orange_osmc_orange_circle_arrow.png
+mycpname osmc_orange_corner osmc_orange_osmc_orange_corner.png
+mycpname osmc_orange_cross osmc_orange_osmc_orange_cross.png
+mycpname osmc_orange_diamond osmc_orange_osmc_orange_diamond.png
+mycpname osmc_orange_diamond_line osmc_orange_osmc_orange_diamond_line.png
+mycpname osmc_orange_dot osmc_orange_osmc_orange_dot.png
+mycpname osmc_orange_drop_line osmc_orange_osmc_orange_drop_line.png
+mycpname osmc_orange_fork osmc_orange_osmc_orange_fork.png
+mycpname osmc_orange_hiker osmc_orange_osmc_orange_hiker.png
+mycpname osmc_orange_house osmc_orange_osmc_orange_house.png
+mycpname osmc_orange_l osmc_orange_osmc_orange_l.png
+mycpname osmc_orange_m osmc_orange_osmc_orange_m.png
+mycpname osmc_orange_lower osmc_orange_osmc_orange_lower.png
+mycpname osmc_orange_pointer osmc_orange_osmc_orange_pointer.png
+mycpname osmc_orange_pointer_line osmc_orange_osmc_orange_pointer_line.png
+mycpname osmc_orange_rectangle osmc_orange_osmc_orange_rectangle.png
+mycpname osmc_orange_rectangle_line osmc_orange_osmc_orange_rectangle_line.png
+mycpname osmc_orange_slash osmc_orange_osmc_orange_slash.png
+mycpname osmc_orange_stripe osmc_orange_osmc_orange_stripe.png
+mycpname osmc_orange_t osmc_orange_osmc_orange_t.png
+mycpname osmc_orange_triangle osmc_orange_osmc_orange_triangle.png
+mycpname osmc_orange_triangle_line osmc_orange_osmc_orange_triangle_line.png
+mycpname osmc_orange_triangle_turned osmc_orange_osmc_orange_triangle_turned.png
+mycpname osmc_orange_turned_t osmc_orange_osmc_orange_turned_t.png
+mycpname osmc_orange_upper osmc_orange_osmc_orange_upper.png
+mycpname osmc_orange_x osmc_orange_osmc_orange_x.png
+
+mycpname osmc_red_arch osmc_red_osmc_red_arch.png
+mycpname osmc_red_backslash osmc_red_osmc_red_backslash.png
+mycpname osmc_red_bar osmc_red_osmc_red_bar.png
+mycpname osmc_red_bicycle osmc_red_osmc_red_bicycle.png
+mycpname osmc_red_bowl osmc_red_osmc_red_bowl.png
+mycpname osmc_red_circle osmc_red_osmc_red_circle.png
+mycpname osmc_red_circle_arrow osmc_red_osmc_red_circle_arrow.png
+mycpname osmc_red_corner osmc_red_osmc_red_corner.png
+mycpname osmc_red_cross osmc_red_osmc_red_cross.png
+mycpname osmc_red_diamond osmc_red_osmc_red_diamond.png
+mycpname osmc_red_diamond_line osmc_red_osmc_red_diamond_line.png
+mycpname osmc_red_dot osmc_red_osmc_red_dot.png
+mycpname osmc_red_drop_line osmc_red_osmc_red_drop_line.png
+mycpname osmc_red_fork osmc_red_osmc_red_fork.png
+mycpname osmc_red_hiker osmc_red_osmc_red_hiker.png
+mycpname osmc_red_house osmc_red_osmc_red_house.png
+mycpname osmc_red_l osmc_red_osmc_red_l.png
+mycpname osmc_red_m osmc_red_osmc_red_m.png
+mycpname osmc_red_lower osmc_red_osmc_red_lower.png
+mycpname osmc_red_pointer osmc_red_osmc_red_pointer.png
+mycpname osmc_red_pointer_line osmc_red_osmc_red_pointer_line.png
+mycpname osmc_red_rectangle osmc_red_osmc_red_rectangle.png
+mycpname osmc_red_rectangle_line osmc_red_osmc_red_rectangle_line.png
+mycpname osmc_red_slash osmc_red_osmc_red_slash.png
+mycpname osmc_red_stripe osmc_red_osmc_red_stripe.png
+mycpname osmc_red_t osmc_red_osmc_red_t.png
+mycpname osmc_red_triangle osmc_red_osmc_red_triangle.png
+mycpname osmc_red_triangle_line osmc_red_osmc_red_triangle_line.png
+mycpname osmc_red_triangle_turned osmc_red_osmc_red_triangle_turned.png
+mycpname osmc_red_turned_t osmc_red_osmc_red_turned_t.png
+mycpname osmc_red_upper osmc_red_osmc_red_upper.png
+mycpname osmc_red_x osmc_red_osmc_red_x.png
+
+mycpname osmc_white_arch osmc_white_osmc_white_arch.png
+mycpname osmc_white_backslash osmc_white_osmc_white_backslash.png
+mycpname osmc_white_bar osmc_white_osmc_white_bar.png
+mycpname osmc_white_bicycle osmc_white_osmc_white_bicycle.png
+mycpname osmc_white_bowl osmc_white_osmc_white_bowl.png
+mycpname osmc_white_circle osmc_white_osmc_white_circle.png
+mycpname osmc_white_circle_arrow osmc_white_osmc_white_circle_arrow.png
+mycpname osmc_white_corner osmc_white_osmc_white_corner.png
+mycpname osmc_white_cross osmc_white_osmc_white_cross.png
+mycpname osmc_white_diamond osmc_white_osmc_white_diamond.png
+mycpname osmc_white_diamond_line osmc_white_osmc_white_diamond_line.png
+mycpname osmc_white_dot osmc_white_osmc_white_dot.png
+mycpname osmc_white_drop_line osmc_white_osmc_white_drop_line.png
+mycpname osmc_white_fork osmc_white_osmc_white_fork.png
+mycpname osmc_white_hiker osmc_white_osmc_white_hiker.png
+mycpname osmc_white_house osmc_white_osmc_white_house.png
+mycpname osmc_white_l osmc_white_osmc_white_l.png
+mycpname osmc_white_m osmc_white_osmc_white_m.png
+mycpname osmc_white_lower osmc_white_osmc_white_lower.png
+mycpname osmc_white_pointer osmc_white_osmc_white_pointer.png
+mycpname osmc_white_pointer_line osmc_white_osmc_white_pointer_line.png
+mycpname osmc_white_rectangle osmc_white_osmc_white_rectangle.png
+mycpname osmc_white_rectangle_line osmc_white_osmc_white_rectangle_line.png
+mycpname osmc_white_slash osmc_white_osmc_white_slash.png
+mycpname osmc_white_stripe osmc_white_osmc_white_stripe.png
+mycpname osmc_white_t osmc_white_osmc_white_t.png
+mycpname osmc_white_triangle osmc_white_osmc_white_triangle.png
+mycpname osmc_white_triangle_line osmc_white_osmc_white_triangle_line.png
+mycpname osmc_white_triangle_turned osmc_white_osmc_white_triangle_turned.png
+mycpname osmc_white_turned_t osmc_white_osmc_white_turned_t.png
+mycpname osmc_white_upper osmc_white_osmc_white_upper.png
+mycpname osmc_white_x osmc_white_osmc_white_x.png
+
+mycpname osmc_yellow_arch osmc_yellow_osmc_yellow_arch.png
+mycpname osmc_yellow_backslash osmc_yellow_osmc_yellow_backslash.png
+mycpname osmc_yellow_bar osmc_yellow_osmc_yellow_bar.png
+mycpname osmc_yellow_bicycle osmc_yellow_osmc_yellow_bicycle.png
+mycpname osmc_yellow_bowl osmc_yellow_osmc_yellow_bowl.png
+mycpname osmc_yellow_circle osmc_yellow_osmc_yellow_circle.png
+mycpname osmc_yellow_circle_arrow osmc_yellow_osmc_yellow_circle_arrow.png
+mycpname osmc_yellow_corner osmc_yellow_osmc_yellow_corner.png
+mycpname osmc_yellow_cross osmc_yellow_osmc_yellow_cross.png
+mycpname osmc_yellow_diamond osmc_yellow_osmc_yellow_diamond.png
+mycpname osmc_yellow_diamond_line osmc_yellow_osmc_yellow_diamond_line.png
+mycpname osmc_yellow_dot osmc_yellow_osmc_yellow_dot.png
+mycpname osmc_yellow_drop_line osmc_yellow_osmc_yellow_drop_line.png
+mycpname osmc_yellow_fork osmc_yellow_osmc_yellow_fork.png
+mycpname osmc_yellow_hiker osmc_yellow_osmc_yellow_hiker.png
+mycpname osmc_yellow_house osmc_yellow_osmc_yellow_house.png
+mycpname osmc_yellow_l osmc_yellow_osmc_yellow_l.png
+mycpname osmc_yellow_m osmc_yellow_osmc_yellow_m.png
+mycpname osmc_yellow_lower osmc_yellow_osmc_yellow_lower.png
+mycpname osmc_yellow_pointer osmc_yellow_osmc_yellow_pointer.png
+mycpname osmc_yellow_pointer_line osmc_yellow_osmc_yellow_pointer_line.png
+mycpname osmc_yellow_rectangle osmc_yellow_osmc_yellow_rectangle.png
+mycpname osmc_yellow_rectangle_line osmc_yellow_osmc_yellow_rectangle_line.png
+mycpname osmc_yellow_slash osmc_yellow_osmc_yellow_slash.png
+mycpname osmc_yellow_stripe osmc_yellow_osmc_yellow_stripe.png
+mycpname osmc_yellow_t osmc_yellow_osmc_yellow_t.png
+mycpname osmc_yellow_triangle osmc_yellow_osmc_yellow_triangle.png
+mycpname osmc_yellow_triangle_line osmc_yellow_osmc_yellow_triangle_line.png
+mycpname osmc_yellow_triangle_turned osmc_yellow_osmc_yellow_triangle_turned.png
+mycpname osmc_yellow_turned_t osmc_yellow_osmc_yellow_turned_t.png
+mycpname osmc_yellow_upper osmc_yellow_osmc_yellow_upper.png
+mycpname osmc_yellow_x osmc_yellow_osmc_yellow_x.png
+
+mycpname osmc_ammonit osmc_other_osmc_ammonit.png
+mycpname osmc_black_horse osmc_other_osmc_black_horse.png
+mycpname osmc_black_red_diamond osmc_other_osmc_black_red_diamond.png
+mycpname osmc_blue_grape osmc_other_osmc_blue_grape.png
+mycpname osmc_blue_wheelchair osmc_other_osmc_blue_wheelchair.png
+mycpname osmc_brown_bar osmc_other_osmc_brown_bar.png
+mycpname osmc_brown_dot osmc_other_osmc_brown_dot.png
+mycpname osmc_brown_x osmc_other_osmc_brown_x.png
+mycpname osmc_green_wheelchair osmc_other_osmc_green_wheelchair.png
+mycpname osmc_green_z osmc_other_osmc_green_z.png
+mycpname osmc_heart osmc_other_osmc_heart.png
+mycpname osmc_mine osmc_other_osmc_mine.png
+mycpname osmc_purple_bar osmc_other_osmc_purple_bar.png
+mycpname osmc_purple_diamond osmc_other_osmc_purple_diamond.png
+mycpname osmc_purple_dot osmc_other_osmc_purple_dot.png
+mycpname osmc_purple_l osmc_other_osmc_purple_l.png
+mycpname osmc_purple_m osmc_other_osmc_purple_m.png
+mycpname osmc_purple_pointer osmc_other_osmc_purple_pointer.png
+mycpname osmc_purple_rectangle osmc_other_osmc_purple_rectangle.png
+mycpname osmc_purple_stripe osmc_other_osmc_purple_stripe.png
+mycpname osmc_red_blue_diamond osmc_other_osmc_red_blue_diamond.png
+mycpname osmc_red_diamond_green_grape osmc_other_osmc_red_diamond_green_grape.png
+mycpname osmc_red_diamond_yellow_grape osmc_other_osmc_red_diamond_yellow_grape.png
+mycpname osmc_red_grape osmc_other_osmc_red_grape.png
+mycpname osmc_red_wheelchair osmc_other_osmc_red_wheelchair.png
+mycpname osmc_shell_modern osmc_other_osmc_shell_modern.png
+mycpname osmc_tower osmc_other_osmc_tower.png
+mycpname osmc_white_black_diamond osmc_other_osmc_white_black_diamond.png
+mycpname osmc_white_red_diamond osmc_other_osmc_white_red_diamond.png
+mycpname osmc_white_shell osmc_other_osmc_white_shell.png
+mycpname osmc_white_wheelchair osmc_other_osmc_white_wheelchair.png
+mycpname osmc_wolfshook osmc_other_osmc_wolfshook.png
+mycpname osmc_yellow_hexagon osmc_other_osmc_yellow_hexagon.png
+mycpname osmc_yellow_mz osmc_other_osmc_yellow_mz.png
+mycpname osmc_yellow_sg osmc_other_osmc_yellow_sg.png
+mycpname osmc_yellow_shell osmc_other_osmc_yellow_shell.png
+
+# Additional
+mycpname cuisine additional_cuisine.png
+mycpname website additional_website.png
+mycpname email additional_email.png
+mycpname facebook additional_facebook.png
+mycpname twitter additional_twitter.png
+mycpname youtube additional_youtube.png
+mycpname vk additional_vk.png
+mycpname fee_yes additional_fee_yes.png
+mycpname fee_no additional_fee_no.png
+mycpname ele additional_ele.png
+mycpname width additional_width.png
+mycpname height additional_height.png
+mycpname abandoned additional_abandoned.png
+mycpname disused additional_disused.png
+mycpname drinking_water_yes additional_drinking_water_yes.png
+mycpname drinking_water_no additional_drinking_water_no.png
+mycpname seasonal_no additional_seasonal_no.png
+mycpname seasonal_yes additional_seasonal_yes.png
+mycpname seasonal_summer additional_seasonal_summer.png
+mycpname seasonal_winter additional_seasonal_winter.png
+mycpname route_bus_ref transport_bus_stop.png
+mycpname route_tram_ref additional_tram.png
+mycpname route_trolleybus_ref additional_trolleybus.png
+mycpname route_train_ref transport_train_station2.png
+mycpname route_share_taxi_ref additional_share_taxi.png
+mycpname route_railway_ref transport_train_station.png
+mycpname route_ferry_ref transport_ferry_terminal.png
+mycpname route_funicular_ref transport_funicular.png
+mycpname route_monorail_ref additional_monorail.png
+mycpname route_light_rail_ref additional_light_rail.png
+mycpname shop_yes shopping_convenience.png
+mycpname beauty_salon_nails additional_beauty_salon_nails.png
+mycpname historic_yes tourist_archaeological2.png
+mycpname lit_yes additional_lit_yes.png
+mycpname lit_no additional_lit_no.png
+mycpname elevator_yes poi_elevator.png
+mycpname theatre_genre_comedy additional_comedy.png
+mycpname temperature additional_temperature.png
+mycpname conveying_yes additional_conveying_yes.png
+mycpname shoes_women additional_shoes_women.png
+mycpname shoes_children additional_shoes_children.png
+mycpname shoes_men shopping_shoes.png
+mycpname cargo_vehicle additional_cargo_vehicle.png
+mycpname cargo_passengers additional_cargo_passengers.png
+mycpname bridge_movable_lift additional_bridge_movable_lift.png
+mycpname bridge_structure_arch additional_bridge_structure_arch.png
+mycpname bridge_structure_beam additional_bridge_structure_beam.png
+mycpname bridge_structure_suspension additional_bridge_structure_suspension.png
+mycpname bridge_type_movable additional_bridge_type_movable.png
+mycpname building_type_basilica additional_building_type_basilica.png
+mycpname building_type_cathedral additional_building_type_cathedral.png
+mycpname building_type_chapel additional_building_type_chapel.png
+mycpname building_type_church additional_building_type_church.png
+mycpname building_type_monastery additional_building_type_monastery.png
+mycpname building_type_mosque additional_building_type_mosque.png
+mycpname building_type_pyramid additional_building_type_pyramid.png
+mycpname building_type_synagogue additional_building_type_synagogue.png
+mycpname tourism_yes additional_tourism_yes.png
+mycpname supervised_yes additional_supervised_yes.png
+mycpname supervised_no additional_supervised_no.png
+mycpname access_no additional_access_no.png
+mycpname access_private additional_access_private.png
+mycpname smoking_yes additional_smoking_yes.png
+mycpname smoking_no additional_smoking_no.png
+mycpname covered_yes additional_covered_yes.png
+mycpname covered_no additional_covered_no.png
+mycpname male_yes additional_male_yes.png
+mycpname male_no additional_male_no.png
+mycpname female_yes additional_female_yes.png
+mycpname female_no additional_female_no.png
+mycpname wheelchair additional_wheelchair.png
+mycpname wheelchair_no additional_wheelchair_no.png
+mycpname bench_yes additional_bench_yes.png
+mycpname bench_no additional_bench_no.png
+mycpname waste_basket_yes additional_waste_basket_yes.png
+mycpname waste_basket_no additional_waste_basket_no.png
+mycpname surface_sand additional_surface_sand.png
+mycpname recycling_container amenity_waste_disposal.png
+mycpname recycling_centre additional_recycling_centre.png
+mycpname crossing_traffic_signals additional_crossing_traffic_lights.png
+mycpname crossing_unmarked additional_crossing_unmarked.png
+mycpname crossing_uncontrolled additional_crossing_uncontrolled.png
+mycpname vending_parking_tickets additional_vending_parking_tickets.png
+mycpname vending_cigarettes additional_vending_cigarettes.png
+mycpname vending_excrement_bags additional_vending_excrement_bags.png
+mycpname vending_public_transport_tickets additional_vending_public_transport_tickets.png
+mycpname vending_drinks additional_vending_drinks.png
+mycpname vending_sweets additional_vending_sweets.png
+mycpname vending_parcel_pickup_mail_in additional_vending_parcel_pickup_mail_in.png
+mycpname vending_condoms additional_vending_condoms.png
+mycpname vending_stamps additional_vending_stamps.png
+mycpname product_brick additional_product_brick.png
+mycpname backrest_yes additional_backrest_yes.png
+mycpname backrest_no additional_backrest_no.png
+mycpname construction_yes additional_construction_yes.png
+mycpname atm_yes additional_atm_yes.png
+mycpname atm_no additional_atm_no.png
+mycpname compressed_air_yes additional_compressed_air_yes.png
+mycpname compressed_air_no additional_compressed_air_no.png
+mycpname car_wash_yes additional_car_wash_yes.png
+mycpname car_wash_no additional_car_wash_no.png
+mycpname vacuum_cleaner_yes additional_vacuum_cleaner_yes.png
+mycpname button_operated_yes additional_button_operated_yes.png
+mycpname button_operated_no additional_button_operated_no.png
+mycpname shop_additional_yes additional_shop_additional_yes.png
+
+
+#Xmas
+mygroup xmas xmas_tree.png
+mycpname xmas_event xmas_event.png
+mycpname xmas_market xmas_market.png
+mycpname xmas_pyramid xmas_pyramid.png
+mycpname xmas_shop xmas_shop.png
+mycpname xmas_tree xmas_tree.png

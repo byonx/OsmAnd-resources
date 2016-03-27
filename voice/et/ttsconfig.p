@@ -1,8 +1,9 @@
-﻿% for turbo-prolog
+% for turbo-prolog
 :- op('--', xfy, 500).
 % for swi-prolog
 :- op(500, xfy,'--').
 
+% TODO: Should be updated to v103 to get more features and better grammar. Use existing v103 files as template.
 version(102).
 tts :- version(X), X > 99.
 voice :- version(X), X < 99.
@@ -10,14 +11,14 @@ voice :- version(X), X < 99.
 language('et').
 %fest_language('cmu_us_awb_arctic_clunits').
 
-% IMPLEMENTED (X) or MISSING ( ) FEATURES:
-% (X) new Version 1.5 format
+% IMPLEMENTED (X) or MISSING ( ) FEATURES, (N/A) if not needed in this language:
+%
 % (X) route calculated prompts, left/right, u-turns, roundabouts, straight/follow
 % (X) arrival
 % (X) other prompts: attention (without Type implementation), location lost, off_route, exceed speed limit
 % (X) special grammar: onto_street / on_street / to_street
-% (X) special grammar: nominative/dativ for distance measure
-% (X) special grammar: imperative/infinitive distincion for turns
+% (X) special grammar: nominative/dative for distance measure
+% (X) special grammar: imperative/infinitive distinction for turns
 % (X) distance measure: meters / feet / yard support
 % (XXX) Street name announcement (suppress in prepare_roundabout) -- NB! Not supressed there.
 % (X) Name announcement for destination / intermediate / GPX waypoint arrival
@@ -368,7 +369,8 @@ time(Sec) -- [Ogg, 'minutes.ogg'] :- tts, S is round(Sec/60.0), S < 60, !, St is
 time(Sec) -- [H, 'and.ogg', Ogg, 'minutes.ogg'] :- tts, !, S is round(Sec/60.0), hours(S, H), St is S mod 60, pnumber(St, Ogg).
 
 time(Sec) -- [Ogg, 'minutes.ogg'] :- not(tts), Sec < 300, St is Sec/60, pnumber(St, Ogg).
-time(Sec) -- [H, 'and.ogg', Ogg, 'minutes.ogg'] :- not(tts), !, S is round(Sec/300.0) * 5, hours(S, H), St is S mod 60, pnumber(St, Ogg).
+time(Sec) -- [H, 'and.ogg', Ogg, 'minutes.ogg'] :- not(tts), !, S is round(Sec/300.0) * 5, St is S mod 60, St > 0, hours(S, H), pnumber(St, Ogg).
+time(Sec) -- [H] :- not(tts), S is round(Sec/300.0) * 5, hours(S, H), St is S mod 60.
 
 
 %%% distance measure

@@ -21,37 +21,14 @@
 		</case>
 	</renderingAttribute>
 
-	<order>
-	<!-- Point -->
-		<switch area="false" point="true" objectType="1" order="128">
-		</switch>
-	<!-- Polygon -->
-		<switch area="true" point="false" objectType="3" order="5">
-		</switch>
-		<switch cycle="true" point="false" objectType="3" order="5">
-		</switch>
-	<!-- Line -->
-		<switch area="false" objectType="2" order="80">
-		</switch>
-		<case tag="osmand" value="file_trackline"/>
-		<case tag="osmand" value="file_routeline"/>
-	</order>
-
-
 	<text>
 	</text>
 
-
 	<point>
-		<case minzoom="5" tag="osmand" value="file_waypoint">
-			<case additional="file_has_waypoints=true" icon="osmand_waypoint" shield="waypoint_shield" iconVisibleSize="5"/>
-		</case>
 	</point>
-
 
 	<polygon>
 	</polygon>
-
 
 	<line>
 	</line>

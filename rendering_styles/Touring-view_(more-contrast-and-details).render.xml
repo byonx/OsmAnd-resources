@@ -107,6 +107,12 @@
 	<renderingProperty attr="alpineHiking" name="Alpine hiking view" description="Render paths according to SAC scale"
 		type="boolean" possibleValues="" category="routes"/>
 
+	<renderingProperty attr="currentTrackColor" name="GPX color" description="Color of displayed GPX tracks"
+		type="string" possibleValues="red,orange,yellow,lightgreen,green,lightblue,blue,purple,translucent_red,translucent_orange,translucent_yellow,translucent_lightgreen,translucent_green,translucent_lightblue,translucent_blue,translucent_purple" defaultValueDescription="defaultTranslucentCyan"/>
+	<renderingProperty attr="currentTrackWidth" name="GPX width" description="Width of displayed GPX tracks"
+		type="string" possibleValues="2,3,4,6,8,11" defaultValueDescription="default"/>
+	<renderingProperty attr="roadStyle" category="ui_hidden"/>
+
 	<!-- road casing contrast higher than in default -->
 	<renderingAttribute name="shadowRendering">
 	<!-- 0 - no shadow, 1 - one step, 2 - blur shadow, 3 - solid shadow -->
@@ -126,10 +132,41 @@
 
 	<!-- gpxColor contrast higher than in default -->
 	<renderingAttribute name="gpx">
+		<!--  This was the original block before introduction of renderingProperty currentTrackColor and currentTrackWidth:
 		<filter strokeWidth="7:6" cap="BUTT" color="#B400FFFF">
 			<filter nightMode="true" color="#B400FFFF"/>
 			<filter additional="routePoints=true" color="#B400FFFF" pathEffect="6_5"/>
 		</filter>
+		-->
+		<switch>
+			<case currentTrackColor="red" color="#ff0000"/>
+			<case currentTrackColor="orange" color="#ff7200"/>
+			<case currentTrackColor="yellow" color="#edc300"/>
+			<case currentTrackColor="lightgreen" color="#6cb52b"/>
+			<case currentTrackColor="green" color="#00842b"/>
+			<case currentTrackColor="lightblue" color="#2ec6ff"/>
+			<case currentTrackColor="blue" color="#4e4eff"/>
+			<case currentTrackColor="purple" color="#a71de1"/>
+			<case currentTrackColor="translucent_red" color="#88ff0000"/>
+			<case currentTrackColor="translucent_orange" color="#88ff7200"/>
+			<case currentTrackColor="translucent_yellow" color="#88edc300"/>
+			<case currentTrackColor="translucent_lightgreen" color="#886cb52b"/>
+			<case currentTrackColor="translucent_green" color="#8800842b"/>
+			<case currentTrackColor="translucent_lightblue" color="#882ec6ff"/>
+			<case currentTrackColor="translucent_blue" color="#884e4eff"/>
+			<case currentTrackColor="translucent_purple" color="#88a71de1"/>
+			<case color="#B400FFFF"/>
+			<apply>
+				<case currentTrackWidth="2" strokeWidth="2"/>
+				<case currentTrackWidth="3" strokeWidth="3"/>
+				<case currentTrackWidth="4" strokeWidth="4"/>
+				<case currentTrackWidth="6" strokeWidth="6"/>
+				<case currentTrackWidth="8" strokeWidth="8"/>
+				<case currentTrackWidth="11" strokeWidth="11"/>
+				<case strokeWidth="7:6"/>
+			</apply>
+			<apply_if additional="routePoints=true" pathEffect="6_5"/>
+		</switch>
 	</renderingAttribute>
 
 	<renderingAttribute name="polygonMinSizeToDisplay">
@@ -177,10 +214,16 @@
 	<renderingConstant name="secondaryRoadColorDimmed" value="#cca568"/>
 	<renderingConstant name="tertiaryRoadColorDimmed" value="#cccc68"/>
 
-	<renderingConstant name="residentialRoadColor" value="#ffffff"/>
-	<renderingConstant name="residentialRoadColorNight" value="#9f9f9f"/>
-	<renderingConstant name="serviceRoadColor" value="#ececec"/>
-	<renderingConstant name="serviceRoadColorNight" value="#727272"/>
+	<renderingAttribute name="residentialRoadColor">
+		<case attrColorValue="#ffffff">
+			<apply_if nightMode="true" attrColorValue="#9f9f9f"/>
+		</case>
+	</renderingAttribute>
+	<renderingAttribute name="serviceRoadColor">
+		<case attrColorValue="#ececec">
+			<apply_if nightMode="true" attrColorValue="#727272"/>
+		</case>
+	</renderingAttribute>
 
 	<renderingConstant name="trackColor" value="#996600"/>
 	<renderingConstant name="pathColorDay" value="#000000"/>
@@ -284,7 +327,7 @@
 			<filter tag="highway" value="unclassified"/>
 			<filter tag="highway" value="residential"/>
 			<groupFilter color="$residentialRoadColor" color_2="$shadowColorDay" minzoom="12" strokeWidth_2=":1">
-				<filter nightMode="true" color="$residentialRoadColorNight" color_2="$shadowColorNight"/>
+				<filter nightMode="true" color_2="$shadowColorNight"/>
 			</groupFilter>
 		</group>
 
@@ -295,7 +338,7 @@
 			<groupFilter>
 				<filter minzoom="13" color="$serviceRoadColor" color_2="$shadowColorDay" strokeWidth_2=":1"/>
 			</groupFilter>
-			<groupFilter nightMode="true" color="$serviceRoadColorNight" color_2="$shadowColorNight"/>
+			<groupFilter nightMode="true" color_2="$shadowColorNight"/>
 		</group>
 	</polygon>
 
@@ -597,7 +640,7 @@
 						<groupFilter nightMode="true" color_0="#ffffff"/>
 					</groupFilter>
 				</filter>
-				<groupFilter nightMode="true" color="$residentialRoadColorNight" shadowColor="$shadowColorNight"/>
+				<groupFilter nightMode="true" shadowColor="$shadowColorNight"/>
 
 			<!--    Use showAccess module from default renderer from now on:
 				<groupFilter minzoom="15" additional="access=no" color_3="$accessPrivateColor" strokeWidth_3="2:3" pathEffect_3="10_3"/> 
@@ -634,7 +677,7 @@
 						<groupFilter nightMode="true" color_0="#ffffff"/>
 					</groupFilter>
 				</filter>
-				<groupFilter nightMode="true" color="$serviceRoadColorNight" shadowColor="$shadowColorNight"/>
+				<groupFilter nightMode="true" shadowColor="$shadowColorNight"/>
 
 			<!--    Use showAccess module from default renderer from now on:
 				<groupFilter minzoom="15" additional="access=no" color_3="$accessPrivateColor" strokeWidth_3="1:2" pathEffect_3="10_3"/> 
@@ -723,7 +766,7 @@
 							<filter minzoom="14" strokeWidth_5="1"/>
 						</filter>
 						<filter minzoom="12" maxzoom="12" strokeWidth_5="0.7"/>
-						<filter minzoom="13" strokeWidth="1"/>
+						<filter minzoom="13" strokeWidth_5="1"/>
 					</groupFilter>
 					<groupFilter nightMode="true" color_5="$pathColorNight"/>
 				</groupFilter>
@@ -832,17 +875,17 @@
 
 		<!-- countour lines -->
 		<group>
-			<filter contourLines="11" tag="contour" value="elevation" minzoom="11" color="$contourLineColor" strokeWidth=":1"/>
-			<filter contourLines="12" tag="contour" value="elevation" minzoom="12" color="$contourLineColor" strokeWidth=":1"/>
-			<filter contourLines="13" tag="contour" value="elevation" minzoom="13" color="$contourLineColor" strokeWidth=":1"/>
-			<filter contourLines="14" tag="contour" value="elevation" minzoom="14" color="$contourLineColor" strokeWidth=":1"/>
-			<filter contourLines="15" tag="contour" value="elevation" minzoom="15" color="$contourLineColor" strokeWidth=":1"/>
-			<filter contourLines="16" tag="contour" value="elevation" minzoom="16" color="$contourLineColor" strokeWidth=":1"/>
+			<filter contourLines="11" tag="contour" value="elevation" minzoom="11" color="$contourLineColor" strokeWidth="1"/>
+			<filter contourLines="12" tag="contour" value="elevation" minzoom="12" color="$contourLineColor" strokeWidth="1"/>
+			<filter contourLines="13" tag="contour" value="elevation" minzoom="13" color="$contourLineColor" strokeWidth="1"/>
+			<filter contourLines="14" tag="contour" value="elevation" minzoom="14" color="$contourLineColor" strokeWidth="1"/>
+			<filter contourLines="15" tag="contour" value="elevation" minzoom="15" color="$contourLineColor" strokeWidth="1"/>
+			<filter contourLines="16" tag="contour" value="elevation" minzoom="16" color="$contourLineColor" strokeWidth="1"/>
 			<groupFilter>
-				<filter additional="contourtype=10m" color="$contourLineColor" strokeWidth=":1"/>
-				<filter additional="contourtype=20m" color="$contourLineColor" strokeWidth=":1"/>
-				<filter additional="contourtype=50m" minzoom="16" color="$contourLineColor50m" strokeWidth=":1.5"/>
-				<filter additional="contourtype=100m" color="$contourLineColor50m" strokeWidth=":2"/>
+				<filter additional="contourtype=10m" color="$contourLineColor" strokeWidth="1"/>
+				<filter additional="contourtype=20m" color="$contourLineColor" strokeWidth="1"/>
+				<filter additional="contourtype=50m" minzoom="16" color="$contourLineColor50m" strokeWidth="1.5"/>
+				<filter additional="contourtype=100m" color="$contourLineColor50m" strokeWidth="2"/>
 			</groupFilter>
 		</group>
 

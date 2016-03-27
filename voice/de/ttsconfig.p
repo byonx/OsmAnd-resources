@@ -1,4 +1,4 @@
-﻿% for turbo-prolog
+% for turbo-prolog
 :- op('--', xfy, 500).
 % for swi-prolog
 :- op(500, xfy,'--').
@@ -12,15 +12,15 @@ language('de').
 % http://www.tcts.fpms.ac.be/synthesis/mbrola/dba/de7/de7.zip
 % fest_language('').
 
-% IMPLEMENTED (X) or MISSING ( ) FEATURES:
-% (X) new Version 1.5 format
+% IMPLEMENTED (X) or MISSING ( ) FEATURES, (N/A) if not needed in this language:
+%
 % (X) route calculated prompts, left/right, u-turns, roundabouts, straight/follow
 % (X) arrival
 % (X) other prompts: attention (without Type implementation), location lost, off_route, exceed speed limit
 % (X) attention Type implementation
 % (X) special grammar: onto / on / to Street fur turn and follow commands
-% (X) special grammar: nominative/dativ for distance measure
-% (N/A) special grammar: imperative/infinitive distincion for turns
+% (X) special grammar: nominative/dative for distance measure
+% (N/A) special grammar: imperative/infinitive distinction for turns
 % (X) distance measure: meters / feet / yard support
 % (X) Street name announcement (suppress in prepare_roundabout)
 % (X) Name announcement for destination / intermediate / GPX waypoint arrival
@@ -56,7 +56,7 @@ string('make_uturn2.ogg', 'Bitte wenden ').
 string('make_uturn_wp.ogg', 'Wenn möglich, bitte wenden ').
 
 % ROUNDABOUTS
-string('prepare_roundabout.ogg', 'Einbiegen in Kreisverkehr ').
+string('prepare_roundabout.ogg', 'einbiegen in Kreisverkehr ').
 string('roundabout.ogg', 'in den Kreisverkehr einfahren, ').
 string('then.ogg', 'dann ').
 string('and.ogg', 'und ').
@@ -121,7 +121,7 @@ string('onto.ogg', 'auf ').  % possibly "Richtung", better grammar, but is also 
 string('on.ogg', 'auf ').
 string('to.ogg', 'bis ').
 string('with.ogg', 'auf ').  % is used if you turn together with your current street, i.e. street name does not change. "mit " or "entlang" are possible alternatives, "auf" seems to be adequate in most instances. "über" is wrong here.
-string('to2.ogg', 'Richtung '). % "zu " gives wrong results in many cases
+string('toward.ogg', 'Richtung '). % "zu " gives wrong results in many cases
 
 % Utility: toLowerCaseStr(OldString,NewString)
 toLowerCaseStr(L1,L1):-  var(L1), !.
@@ -131,15 +131,6 @@ toLowerCaseStr([H1|T1],[H1|T2]):- toLowerCaseStr(T1,T2).
 
 % Utility: toLowerCaseAto(OldString,NewString)
 toLowerCaseAto(A1,A2) :- atom_codes(A1,S1),toLowerCaseStr(S1,S2),atom_codes(A2,S2).
-
-% Utility: removeSemicolonStr(OldString,NewString)
-removeSemicolonStr(L1,L1):-  var(L1), !.
-removeSemicolonStr([],[]):-  !.
-removeSemicolonStr([H1|T1],[H2|T2]):- H1=59, !, H2 is 32, removeSemicolonStr(T1,T2).
-removeSemicolonStr([H1|T1],[H1|T2]):- removeSemicolonStr(T1,T2).
-
-% Utility: removeSemicolonAto(OldString,NewString)
-removeSemicolonAto(A1,A2) :- atom_codes(A1,S1),removeSemicolonStr(S1,S2),atom_codes(A2,S2).
 
 % Utility: reverseStr(OldStr,[],RevStr)
 reverseStr([H|T], A, R) :- reverseStr(T, [H|A], R).
@@ -225,17 +216,22 @@ turn('right_sh', ['right_sh.ogg']).
 turn('right_sl', ['right_sl.ogg']).
 turn('left_keep', ['left_keep.ogg']).
 turn('right_keep', ['right_keep.ogg']).
+% Note: turn('left_keep'/'right_keep',[]) is a turn type aiding lane selection, while bear_left()/bear_right() are triggered as brief "turn-after-next" preparation sounding always after a "..., then...". In some languages l/r_keep may not differ from bear_l/r:
 bear_left(_Street) -- ['left_keep.ogg'].
 bear_right(_Street) -- ['right_keep.ogg'].
 
 % cut_part_street(voice([Ref, Name, Dest], [_CurrentRef, _CurrentName, _CurrentDest]), _).
-cut_part_street(voice(['', '', Dest], _), DestClean) :- removeSemicolonAto(Dest,DestClean).
 % cut_part_street(voice(['', Name, _], _), Name). % not necessary
-cut_part_street(voice([Ref, Name, _], _), Concat) :- atom_concat(Name, ' ', C1), atom_concat(C1, Ref, Concat).
+% Next 2 lines for Name taking precedence over Dest...
+%cut_part_street(voice([Ref, '', Dest], _), [C1, 'toward.ogg', Dest]) :- atom_concat(Ref, ' ', C1).
+%cut_part_street(voice([Ref, Name, _], _), Concat) :- atom_concat(Ref, ' ', C1), atom_concat(C1, Name, Concat).
+% ...or next 2 lines for Dest taking precedence over Name
+cut_part_street(voice([Ref, Name, ''], _), Concat) :- atom_concat(Ref, ' ', C1), atom_concat(C1, Name, Concat).
+cut_part_street(voice([Ref, _, Dest], _), [C1, 'toward.ogg', Dest]) :- atom_concat(Ref, ' ', C1).
 
 turn_street('', []).
 turn_street(voice(['','',''],_), []).
-turn_street(Street, ['to2.ogg', SName]) :- tts, Street = voice(['', '', D], _), cut_part_street(Street, SName).
+turn_street(voice(['', '', D], _), ['toward.ogg', D]) :- tts.
 turn_street(Street, ['onto.ogg', 'den ', SName]) :- tts, not(Street = voice(['', '', D], _)), street_is_male(Street), cut_part_street(Street, SName).
 turn_street(Street, ['onto.ogg', 'die ', SName]) :- tts, not(Street = voice(['', '', D], _)), street_is_female(Street), cut_part_street(Street, SName).
 turn_street(Street, ['onto.ogg', SName]) :- tts, not(Street = voice(['', '', D], _)), street_is_nothing(Street), cut_part_street(Street, SName).
@@ -243,7 +239,7 @@ turn_street(_Street, []) :- not(tts).
 
 follow_street('', []).
 follow_street(voice(['','',''],_), []).
-follow_street(Street, ['to.ogg', SName]) :- tts, Street = voice(['', '', D], _), cut_part_street(Street, SName).
+follow_street(voice(['', '', D], _), ['to.ogg', D]) :- tts.
 follow_street(Street, ['to.ogg', 'zum ', SName]) :- tts, not(Street = voice([R, S, _],[R, S, _])), street_is_male(Street), cut_part_street(Street, SName).
 follow_street(Street, ['to.ogg', 'zur ', SName]) :- tts, not(Street = voice([R, S, _],[R, S, _])), street_is_female(Street), cut_part_street(Street, SName).
 follow_street(Street, ['to.ogg', SName]) :- tts, not(Street = voice([R, S, _],[R, S, _])), street_is_nothing(Street), cut_part_street(Street, SName).
@@ -351,10 +347,12 @@ hours(S, []) :- S < 60.
 hours(S, ['1_hour.ogg']) :- S < 120, H is S div 60, pnumber(H, Ogg).
 hours(S, [Ogg, 'hours.ogg']) :- H is S div 60, pnumber(H, Ogg).
 time(Sec) -- ['less_a_minute.ogg'] :- Sec < 30.
+time(Sec) -- [H] :- tts, S is round(Sec/60.0), hours(S, H), St is S mod 60, St = 0.
 time(Sec) -- [H, '1_minute.ogg'] :- tts, S is round(Sec/60.0), hours(S, H), St is S mod 60, St = 1, pnumber(St, Ogg).
 time(Sec) -- [H, Ogg, 'minutes.ogg'] :- tts, S is round(Sec/60.0), hours(S, H), St is S mod 60, pnumber(St, Ogg).
 time(Sec) -- [Ogg, 'minutes.ogg'] :- not(tts), Sec < 300, St is Sec/60, pnumber(St, Ogg).
-time(Sec) -- [H, Ogg, 'minutes.ogg'] :- not(tts), S is round(Sec/300.0) * 5, hours(S, H), St is S mod 60, pnumber(St, Ogg).
+time(Sec) -- [H, Ogg, 'minutes.ogg'] :- not(tts), S is round(Sec/300.0) * 5, St is S mod 60, St > 0, hours(S, H), pnumber(St, Ogg).
+time(Sec) -- [H] :- not(tts), S is round(Sec/300.0) * 5, hours(S, H), St is S mod 60.
 
 
 %%% distance measure

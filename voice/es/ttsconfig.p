@@ -10,21 +10,23 @@ voice :- version(X), X < 99.
 language('es').
 % fest_language('').
 
-% IMPLEMENTED (X) or MISSING ( ) FEATURES:
-% (X) new Version 1.5 format
+% IMPLEMENTED (X) or MISSING ( ) FEATURES, (N/A) if not needed in this language:
+%
 % (X) route calculated prompts, left/right, u-turns, roundabouts, straight/follow
 % (X) arrival
 % (X) other prompts: attention (without Type implementation), location lost, off_route, exceed speed limit
 % (X) attention Type implementation
 % ( ) special grammar: onto / on / to Street fur turn and follow commands
-% (N/A) special grammar: nominative/dativ for distance measure
-% (X) special grammar: imperative/infinitive distincion for turns
+% (N/A) special grammar: nominative/dative for distance measure
+% (X) special grammar: imperative/infinitive distinction for turns
 % (X) distance measure: meters / feet / yard support
 % (X) Street name announcement (suppress in prepare_roundabout)
 % (X) Name announcement for destination / intermediate / GPX waypoint arrival
 % (X) Time announcement for new and recalculated route (for recalculated suppress in appMode=car)
 % ( ) word order checked
 % (X) Announcement of favorites, waypoints and pois along the route
+% (X) Announcement when user returns back to route
+% (X) Support announcement of railroad crossings and pedestrian crosswalks
 
 
 % ROUTE CALCULATED
@@ -33,35 +35,37 @@ string('route_calculate.ogg', 'Ruta recalculada ').
 string('distance.ogg', ', distancia').
 
 % LEFT/RIGHT
-string('prepare.ogg', 'prepárate para').
+string('prepare.ogg', 'Prepárate para').
 string('after.ogg', 'después de ').
+string('in.ogg', 'en ').
 
 string('left.ogg', 'gira a la izquierda').
-string('left_sh.ogg', 'gira fuerte a la izquierda').
+string('left_sh.ogg', 'efectúa un giro cerrado a la izquierda').
 string('left_sl.ogg', 'gira levemente a la izquierda').
 string('right.ogg', 'gira a la derecha').
-string('right_sh.ogg', 'gira fuerte a la derecha').
+string('right_sh.ogg', 'efectúa un giro cerrado a la derecha').
 string('right_sl.ogg', 'gira levemente a la derecha').
 string('left_keep.ogg', 'mantente a la izquierda').
 string('right_keep.ogg', 'mantente a la derecha').
 % if needed, "left/right_bear.ogg" can be defined here also. "... (then) (bear_left/right)" is used in pre-announcements to indicate the direction of a successive turn AFTER the next turn.
 
 string('left_inf.ogg', 'girar a la izquierda').
-string('left_sh_inf.ogg', 'girar fuerte a la izquierda').
+string('left_sh_inf.ogg', 'efectuar un giro cerrado a la izquierda').
 string('left_sl_inf.ogg', 'girar levemente a la izquierda').
 string('right_inf.ogg', 'girar a la derecha').
-string('right_sh_inf.ogg', 'girar fuerte a la derecha').
+string('right_sh_inf.ogg', 'efectuar un giro cerrado a la derecha').
 string('right_sl_inf.ogg', 'girar levemente a la derecha').
 string('left_keep_inf.ogg', 'mantenerte a la izquierda').
 string('right_keep_inf.ogg', 'mantenerte a la derecha').
 
 % U-TURNS
-string('prepare_make_uturn.ogg', 'Prepárate para dar la vuelta después de').
-string('make_uturn.ogg', 'da la vuelta').
-string('make_uturn_wp.ogg', 'cuando puedas, da la vuelta').
+
+string('make_uturn.ogg', 'Da la vuelta').
+string('make_uturn_wp.ogg', 'Cuando puedas, da la vuelta').
 
 % ROUNDABOUTS
-string('prepare_roundabout.ogg', 'Prepárate para entrar en la rotonda después de').
+%string('prepare_roundabout.ogg', 'Prepárate para entrar en la rotonda después de').
+string('prepare_roundabout.ogg', 'entra en la rotonda ').
 string('roundabout.ogg', 'entra en la rotonda').
 string('then.ogg', ', luego').
 string('and.ogg', 'y').
@@ -95,40 +99,45 @@ string('and_arrive_destination.ogg', 'y llegarás a tu destino').
 string('reached_destination.ogg','has llegado a tu destino').
 string('and_arrive_intermediate.ogg', 'y llegarás a tu punto intermedio').
 string('reached_intermediate.ogg', 'has llegado a tu punto intermedio').
-string('and_arrive_waypoint.ogg', 'y llegarás a tu punto G P X intermedio').
-string('and_arrive_favorite.ogg', 'y llegarás a tu favorito ').
-string('and_arrive_poi_waypoint.ogg', 'y llegarás al P D I ').
-string('reached_waypoint.ogg', 'has llegado a tu punto G P X intermedio').
-string('reached_favorite.ogg', 'has llegado a tu punto intermedio favorito ').
-string('reached_poi.ogg', 'has llegado a tu P D I ').
+string('and_arrive_waypoint.ogg', 'y pasarás tu punto G P X intermedio').
+string('reached_waypoint.ogg', 'estás pasando tu punto G P X intermedio').
+
+string('and_arrive_favorite.ogg', 'y pasarás tu favorito ').
+string('reached_favorite.ogg', 'estás pasando tu punto favorito ').
+string('and_arrive_poi_waypoint.ogg', 'y pasarás el P D I ').
+
+string('reached_poi.ogg', 'estás pasando el P D I ').
 
 % OTHER PROMPTS
 string('attention.ogg', 'atención, ').
 string('speed_camera.ogg', 'radar de velocidad ').
 string('border_control.ogg', 'control fronterizo ').
+string('railroad_crossing.ogg', 'paso a nivel ').
 string('traffic_calming.ogg', 'badén ').
 string('toll_booth.ogg', 'cabina de peaje ').
 string('stop.ogg', 'señal de ESTOP ').
+string('pedestrian_crosswalk.ogg', 'paso de peatones ').
 
 string('location_lost.ogg', 'señal g p s perdida').
 string('location_recovered.ogg', 'señal g p s encontrada ').
 string('off_route.ogg', 'te has desviado de la ruta').
-string('exceed_limit.ogg', 'límite de velocidad excedido').
+string('back_on_route.ogg', 'has regresado a la ruta').
+string('exceed_limit.ogg', 'estás excediendo el límite de velocidad ').
 
 % STREET NAME GRAMMAR
-string('on.ogg', 'en').
-string('to.ogg', 'a').
+string('on.ogg', 'en ').
+string('to.ogg', 'hacia ').
 
 % DISTANCE UNIT SUPPORT
 string('meters.ogg', 'metros').
-string('around_1_kilometer.ogg', 'cerca de un kilómetro').
-string('around.ogg', 'cerca de').
+string('around_1_kilometer.ogg', 'aproximadamente un kilómetro').
+string('around.ogg', 'aproximadamente').
 string('kilometers.ogg', 'kilómetros').
 
 string('feet.ogg', 'pies').
 string('1_tenth_of_a_mile.ogg', 'una décima de milla').
 string('tenths_of_a_mile.ogg', 'décimas de milla').
-string('around_1_mile.ogg', 'cerca de una milla').
+string('around_1_mile.ogg', 'aproximadamente una milla').
 string('miles.ogg', 'millas').
 
 string('yards.ogg', 'yardas').
@@ -166,20 +175,24 @@ turn_inf('left_keep', ['left_keep_inf.ogg']).
 turn_inf('right_keep', ['right_keep_inf.ogg']).
 
 % cut_part_street(voice([Ref, Name, Dest], [_CurrentRef, _CurrentName, _CurrentDest]), _).
-cut_part_street(voice(['', '', Dest], _), Dest).
 % cut_part_street(voice(['', Name, _], _), Name). % not necessary
-cut_part_street(voice([Ref, Name, _], _), Concat) :- atom_concat(Ref, ' ', C1), atom_concat(C1, Name, Concat).
+% Next 2 lines for Name taking precedence over Dest...
+%cut_part_street(voice([Ref, '', Dest], _), [C1, 'to.ogg', Dest]) :- atom_concat(Ref, ' ', C1).
+%cut_part_street(voice([Ref, Name, _], _), Concat) :- atom_concat(Ref, ' ', C1), atom_concat(C1, Name, Concat).
+% ...or next 2 lines for Dest taking precedence over Name
+cut_part_street(voice([Ref, Name, ''], _), Concat) :- atom_concat(Ref, ' ', C1), atom_concat(C1, Name, Concat).
+cut_part_street(voice([Ref, _, Dest], _), [C1, 'to.ogg', Dest]) :- atom_concat(Ref, ' ', C1).
 
 turn_street('', []).
 turn_street(voice(['','',''],_), []).
-turn_street(Street, ['to.ogg', SName]) :- tts, Street = voice(['', '', D], _), cut_part_street(Street, SName).
+turn_street(voice(['', '', D], _), ['to.ogg', D]) :- tts.
 turn_street(Street, ['on.ogg', SName]) :- tts, not(Street = voice([R, S, _],[R, S, _])), cut_part_street(Street, SName).
 turn_street(Street, ['on.ogg', SName]) :- tts, Street = voice([R, S, _],[R, S, _]), cut_part_street(Street, SName).
 turn_street(_Street, []) :- not(tts).
 
 follow_street('', []).
 follow_street(voice(['','',''],_), []).
-follow_street(Street, ['to.ogg', SName]) :- tts, Street = voice(['', '', D], _), cut_part_street(Street, SName).
+follow_street(voice(['', '', D], _), ['to.ogg', D]) :- tts.
 follow_street(Street, ['to.ogg', SName]) :- tts, not(Street = voice([R, S, _],[R, S, _])), cut_part_street(Street, SName).
 follow_street(Street, ['on.ogg', SName]) :- tts, Street = voice([R, S, _],[R, S, _]), cut_part_street(Street, SName).
 follow_street(_Street, []) :- not(tts).
@@ -188,12 +201,12 @@ prepare_turn(Turn, Dist, _Street) -- ['prepare.ogg', M, 'after.ogg', D, ' '] :- 
 turn(Turn, Dist, Street) -- ['after.ogg', D, M | Sgen] :- distance(Dist) -- D, turn(Turn, M), turn_street(Street, Sgen).
 turn(Turn, Street) -- [M | Sgen]  :- turn(Turn, M), turn_street(Street, Sgen).
 
-prepare_make_ut(Dist, Street) -- ['prepare_make_uturn.ogg', D | Sgen] :- distance(Dist) -- D, turn_street(Street, Sgen).
+prepare_make_ut(Dist, Street) -- ['after.ogg', D, 'make_uturn.ogg' | Sgen] :- distance(Dist) -- D, turn_street(Street, Sgen).
 make_ut(Dist, Street) --  ['after.ogg', D, 'make_uturn.ogg' | Sgen] :- distance(Dist) -- D, turn_street(Street, Sgen).
 make_ut(Street) -- ['make_uturn.ogg' | Sgen] :- turn_street(Street, Sgen).
 make_ut_wp -- ['make_uturn_wp.ogg'].
 
-prepare_roundabout(Dist, _Exit, _Street) -- ['prepare_roundabout.ogg', D] :- distance(Dist) -- D.
+prepare_roundabout(Dist, _Exit, _Street) -- ['after.ogg', D , 'prepare_roundabout.ogg'] :- distance(Dist) -- D.
 roundabout(Dist, _Angle, Exit, Street) -- ['after.ogg', D, 'roundabout.ogg', 'and.ogg', 'take.ogg', E, 'exit.ogg' | Sgen] :- distance(Dist) -- D, nth(Exit, E), turn_street(Street, Sgen).
 roundabout(_Angle, Exit, Street) -- ['take.ogg', E, 'exit.ogg' | Sgen] :- nth(Exit, E), turn_street(Street, Sgen).
 
@@ -220,7 +233,7 @@ route_recalc(Dist, Time) -- ['route_calculate.ogg', 'distance.ogg', D, 'time.ogg
 
 location_lost -- ['location_lost.ogg'].
 location_recovered -- ['location_recovered.ogg'].
-off_route(_Dist) -- ['off_route.ogg'].
+off_route(Dist) -- ['off_route.ogg', D] :- distance(Dist) -- D.
 speed_alarm -- ['exceed_limit.ogg'].
 % attention(_Type) -- ['attention.ogg'].
 attention(Type) -- ['attention.ogg', W] :- warning(Type, W).
@@ -229,11 +242,13 @@ attention(Type) -- ['attention.ogg', W] :- warning(Type, W).
 warning('SPEED_CAMERA', 'speed_camera.ogg').
 warning('SPEED_LIMIT', '').
 warning('BORDER_CONTROL', 'border_control.ogg').
+warning('RAILWAY', 'railroad_crossing.ogg').
 warning('TRAFFIC_CALMING', 'traffic_calming.ogg').
 warning('TOLL_BOOTH', 'toll_booth.ogg').
 warning('STOP', 'stop.ogg').
+warning('PEDESTRIAN', 'pedestrian_crosswalk.ogg').
 warning('MAXIMUM', '').
-warning(Type, '') :- not(Type = 'SPEED_CAMERA'; Type = 'SPEED_LIMIT'; Type = 'BORDER_CONTROL'; Type = 'TRAFFIC_CALMING'; Type = 'TOLL_BOOTH'; Type = 'STOP'; Type = 'MAXIMUM').
+warning(Type, '') :- not(Type = 'SPEED_CAMERA'; Type = 'SPEED_LIMIT'; Type = 'BORDER_CONTROL'; Type = 'RAILWAY'; Type = 'TRAFFIC_CALMING'; Type = 'TOLL_BOOTH'; Type = 'STOP'; Type = 'PEDESTRIAN'; Type = 'MAXIMUM').
 
 %% 
 nth(1, '1st.ogg').
@@ -283,10 +298,12 @@ hours(S, []) :- S < 60.
 hours(S, ['1_hour.ogg']) :- S < 120, H is S div 60, pnumber(H, Ogg).
 hours(S, [Ogg, 'hours.ogg']) :- H is S div 60, pnumber(H, Ogg).
 time(Sec) -- ['less_a_minute.ogg'] :- Sec < 30.
+time(Sec) -- [H] :- tts, S is round(Sec/60.0), hours(S, H), St is S mod 60, St = 0.
 time(Sec) -- [H, '1_minute.ogg'] :- tts, S is round(Sec/60.0), hours(S, H), St is S mod 60, St = 1, pnumber(St, Ogg).
 time(Sec) -- [H, Ogg, 'minutes.ogg'] :- tts, S is round(Sec/60.0), hours(S, H), St is S mod 60, pnumber(St, Ogg).
 time(Sec) -- [Ogg, 'minutes.ogg'] :- not(tts), Sec < 300, St is Sec/60, pnumber(St, Ogg).
-time(Sec) -- [H, Ogg, 'minutes.ogg'] :- not(tts), S is round(Sec/300.0) * 5, hours(S, H), St is S mod 60, pnumber(St, Ogg).
+time(Sec) -- [H, Ogg, 'minutes.ogg'] :- not(tts), S is round(Sec/300.0) * 5, St is S mod 60, St > 0, hours(S, H), pnumber(St, Ogg).
+time(Sec) -- [H] :- not(tts), S is round(Sec/300.0) * 5, hours(S, H), St is S mod 60.
 
 
 %%% distance measure
